@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 01, 2020 at 05:27 AM
+-- Generation Time: Nov 02, 2020 at 02:02 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -108,7 +108,7 @@ CREATE TABLE `kategories` (
 
 INSERT INTO `kategories` (`id`, `name`, `keterangan`, `image`, `no_urut`, `status`, `date_created`) VALUES
 (5, 'Laravel 7', 'Tidak bagus lagi', 'red-folder-icon.png', 3, 0, '2020-10-31 11:02:46'),
-(7, 'Yamaha', 'Tidak bagus lagis', 'dhdfdh.jpg', 3, 0, '2020-11-01 12:48:26');
+(7, 'Yamaha', 'Tidak bagus lagi', 'dhdfdh.jpg', 3, 0, '2020-11-01 12:48:26');
 
 -- --------------------------------------------------------
 
@@ -149,6 +149,20 @@ CREATE TABLE `pembayaran` (
   `bukti_pembayaran` varchar(223) NOT NULL,
   `status` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`) VALUES
+(1, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(2, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(3, 2, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(4, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(5, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(6, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(7, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
+(8, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0);
 
 -- --------------------------------------------------------
 
@@ -242,7 +256,8 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `user_id`, `keterangan`, `foto`) VALUES
-(1, 2, 'Masih sangat bagus ya', '');
+(4, 2, 'Tidak bagus lagis', ''),
+(5, 1, 'Tidak bagus lagi', '');
 
 -- --------------------------------------------------------
 
@@ -270,7 +285,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
 (1, 'Super Admin', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'Admin', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '2RINkE7QsOS7Et3yOcJk5od//CcV20333j6XB27o54aZSv4oMIQvEdg_iulZE8Q9TkaWhykIWzHUtDjDaYecaQ==', 1);
+(2, 'Admin', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '2RH3pNBhu2KofNcx58pyrlTgKxTknN76xcjtsvNEoyjjq_Zjec4_OlnDl3Bn03wMAwacfFFxyKdTNsTvbPBLCA==', 1);
 
 -- --------------------------------------------------------
 
@@ -289,15 +304,6 @@ CREATE TABLE `videos` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `videos`
---
-
-INSERT INTO `videos` (`id`, `kategori_id`, `no_urut`, `title`, `description`, `file`, `created_at`, `updated_at`, `status`) VALUES
-(1, 5, 2, 'Routing', 'Kali ini kita akan membahas tentang routing', '4_Routing_view.mp4', '2020-10-07 00:00:00', '2020-10-14 00:00:00', 1),
-(5, 5, 1, 'Instal Laravel 7', 'Hal yang pertama di lakukan tentunya ialah edit video dong ..!!', '2_Install_Laravel_7_pastinya.mp4', '2020-10-31 12:01:38', '2020-10-31 12:01:38', 1),
-(6, 5, 3, 'Mari Kita Install vallet', 'Install Vallet', '3_Valet.mp4', '2020-10-31 12:07:30', '2020-10-31 12:07:30', 1);
 
 --
 -- Indexes for dumped tables
@@ -426,7 +432,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `rules`
@@ -450,7 +456,7 @@ ALTER TABLE `submenus`
 -- AUTO_INCREMENT for table `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -462,7 +468,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -490,10 +496,22 @@ ALTER TABLE `access_submenu_role`
   ADD CONSTRAINT `access_submenu_role_ibfk_2` FOREIGN KEY (`submenu_id`) REFERENCES `submenus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
 -- Constraints for table `submenus`
 --
 ALTER TABLE `submenus`
   ADD CONSTRAINT `submenus_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  ADD CONSTRAINT `testimonial_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `anggaran`.`users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `videos`

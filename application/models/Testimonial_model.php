@@ -25,8 +25,8 @@ class Testimonial_model extends CI_Model
   }
   public function user()
   {
-    $user = $this->belongsTo($this->user_model);
-    $user = $this->user_model->first($this->user_id);
+    // $user = $this->belongsTo($this->user_model);
+    $user = $this->belongsTo($this->user_model, "user_id");
     return $user;
   }
 }
