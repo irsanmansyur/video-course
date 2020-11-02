@@ -22,7 +22,12 @@ class Kategori extends Admin_Controller
     $this->form_validation->set_rules($kategori->getRules());
 
     if ($this->form_validation->run()) {
-      $kategori->image = $this->upload($kategori->image);
+      if ($_FILES['gambar']['name']) {
+        $image = $this->upload($kategori->image);
+        if (!$image)
+          return back();
+        $kategori->image = $image;
+      }
       $kategori->save();
       flashDataDB("success", "Kategori berhasil di tambahkan");
       return redirect("admin/kategori");
@@ -67,10 +72,10 @@ class Kategori extends Admin_Controller
       if ($this->upload->do_upload('gambar')) {
         if (is_file(FCPATH . 'assets/img/kategori/' . $filename) && $filename != 'default.jpg')
           unlink(FCPATH . 'assets/img/kategori/' . $filename);
-
         $filename = $this->upload->data('file_name');
       } else {
-        echo $this->upload->display_errors();
+        $this->session->set_flashdata("image", "<div class='error text-danger'>{$this->upload->display_errors()}</div>");
+        return false;
       }
     }
     return $filename;
