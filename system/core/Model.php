@@ -257,13 +257,25 @@ class CI_Model
     $eks = $this->db->update($this->_table, $update);
     return $this;
   }
-
+  protected $_afterDelete = [];
   public function delete($id = null)
   {
     if (isset($this->{$this->_primaryKey})) {
       $this->where($this->_primaryKey, $this->{$this->_primaryKey});
     }
-    return $this->db->delete($this->_table);
+
+    $delete = $this->db->delete($this->_table);
+    if ($this->db->affected_rows() > 0) {
+      foreach ($this->_afterDelete as $func) {
+        $this->{$func}($this);
+      }
+      $this->_clear();
+    }
+    return $delete;
+  }
+
+  private function _clear()
+  {
   }
   protected function getLastId($unique = "id", $string = "id-")
   {

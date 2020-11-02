@@ -33,6 +33,8 @@ class Video extends Admin_Controller
     $this->db->order_by("no_urut");
     $this->video_model->db->limit($config['per_page'], $data['page']);
     $videos = $this->video_model->all();
+
+
     $data['pagination'] = $this->pagination->create_links();
 
 
@@ -143,7 +145,7 @@ class Video extends Admin_Controller
     $data = [
       'page_title' => "Tambah Video",
     ];
-    $this->template->load('admin', 'video/edit', array_merge($data, compact(['kategories', 'video', ($kategori ? "kategori" : null)])));
+    $this->template->load('admin', 'video/edit', array_merge($data, compact(['kategories', 'video',  "kategori"])));
   }
   public function delete($id, $kategori = null)
   {
@@ -162,7 +164,6 @@ class Video extends Admin_Controller
       if ($this->upload->do_upload('video')) {
         if (is_file(FCPATH . 'assets/video/' . $filename) && $filename != 'default.mp4')
           unlink(FCPATH . 'assets/video/' . $filename);
-
         $filename = $this->upload->data('file_name');
       } else {
         $this->session->set_flashdata("video", "<div class='error text-danger'>{$this->upload->display_errors()}</div>");

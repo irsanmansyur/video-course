@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Video_model extends CI_Model
 {
   protected $_table = 'videos';
+  protected $_afterDelete = ["deleteVideo"];
   protected $_rules = [
     array(
       'field' => 'title',
@@ -33,12 +34,18 @@ class Video_model extends CI_Model
   }
   public function kategori()
   {
-    $kategori = $this->Kategori_model->first($this->kategori_id);
+    // $kategori = $this->Kategori_model->first($this->kategori_id);
+    $kategori = $this->belongsTo($this->kategori_model);
     return $kategori;
   }
   public function countVideo()
   {
     $count = $this->db->count_all_results($this->getTable());
     return $count;
+  }
+  public function deleteVideo($data)
+  {
+    if (is_file(FCPATH . 'assets/video/' . $data->file) && $data->file != 'default.mp4')
+      unlink(FCPATH . 'assets/video/' . $data->file);
   }
 }

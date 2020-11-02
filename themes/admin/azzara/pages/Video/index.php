@@ -45,7 +45,8 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <?php foreach ($videos as $video) : ?>
+                <?php foreach ($videos as $video) :
+                  $video->kategori(); ?>
                   <div class="col-md-4 key_me">
                     <?php $this->load->view($thema_load . "pages/video/partials/_card-video.php", compact("video")); ?>
                   </div>

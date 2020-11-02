@@ -19,14 +19,15 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 
 /assets/video/*
+/assets/*/.*
 
 /vendor/*
 /user_guide/*
 
 
 core/*
-# /application/config/config.php
-# /application/config/database.php
+/application/config/config.php
+/application/config/database.php
 ~$*
 
 # IDE Files
