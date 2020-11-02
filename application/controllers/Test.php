@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Test extends MY_Controller
+class Test extends CI_Controller
 {
 
   /**
@@ -21,9 +21,13 @@ class Test extends MY_Controller
    */
   public function index()
   {
-    $this->load->model("menu_model");
-    $menu = $this->menu_model;
-    die(var_dump($menu->getNewFields()));
+    $this->load->model("testimonial_model");
+    $testimonials = $this->testimonial_model->all();
+    die(var_dump($testimonials[0]));
+
     $this->load->view('welcome_message');
+  }
+  public function d()
+  {
   }
 }

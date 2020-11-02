@@ -34,24 +34,53 @@
                 <i class="flaticon-right-arrow"></i>
               </li>
               <li class="nav-item active">
-                <a href="#">Laporan Mobil</a>
+                <a href="#">Daftar Testimonial</a>
               </li>
             </ul>
           </div>
           <div class="card">
             <div class="card-header  d-flex justify-content-between">
               <div class="card-title"><?= $page_title; ?></div>
-              <a href="<?= base_url('admin/video/tambah' . (isset($kategori) && $kategori ? "/{$kategori->id}" : '')); ?>" class="btn btn-primary">Tambah</a>
+              <a href="<?= base_url('admin/testimonial/tambah') ?>" class="btn btn-primary">Tambah</a>
             </div>
             <div class="card-body">
-              <div class="row">
-                <?php foreach ($videos as $video) : ?>
-                  <div class="col-md-4 key_me">
-                    <?php $this->load->view($thema_load . "pages/video/partials/_card-video.php", compact("video")); ?>
-                  </div>
-                <?php endforeach; ?>
+              <div class="table-responsive">
+                <table id="basic-datatables" class="table table-hover display table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nama User</th>
+                      <th scope="col">Keterangan/Ulasan</th>
+                      <th scope="col">Profile</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($testimonials as $testimonial) :
+                      $testimonial->user();
+                    ?>
+                      <tr class="key_me">
+                        <td><?= $no++; ?></td>
+                        <td><?= $testimonial->user->name; ?></td>
+                        <td><?= $testimonial->keterangan; ?></td>
+                        <td>
+                          <div class="avatar avatar-xl">
+                            <img src="<?= base_url("assets/img/profile/{$testimonial->user->profile}"); ?>" alt="..." class="avatar-img rounded-circle">
+                          </div>
+                        </td>
+
+
+                        <td>
+                          <a href="<?= base_url('admin/testimonial/edit/' . $testimonial->id); ?>" class="btn btn-warning btn-sm rounded">Edit</a>
+                          <a href="<?= base_url('admin/testimonial/delete/' . $testimonial->id); ?>" class="delete btn btn-danger btn-sm rounded">Delete</a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
               </div>
-              <?= $pagination; ?>
             </div>
           </div>
         </div>

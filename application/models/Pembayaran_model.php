@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pembayaran_model extends CI_Model
 {
-  protected $_table = 'Pembayaran';
+  protected $_table = 'pembayaran';
   protected $_rules = [
     array(
       'field' => 'jumlah',
@@ -30,6 +30,6 @@ class Pembayaran_model extends CI_Model
   }
   public function user()
   {
-    return $this->user_model->first($this->user_id);
+    return $this->belongsTo($this->user_model);
   }
 }

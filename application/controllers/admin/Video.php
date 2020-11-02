@@ -125,7 +125,8 @@ class Video extends Admin_Controller
   {
     $video = $this->video_model->first($id);
     if (!$video) return $this->not_permition();
-    $kategori = $this->kategori_model->first($kategori);
+    $kategori && $kategori = $this->kategori_model->first($kategori);
+
     $kategories = $this->kategori_model->all();
 
     $this->form_validation->set_rules($video->getRules());
@@ -142,7 +143,7 @@ class Video extends Admin_Controller
     $data = [
       'page_title' => "Tambah Video",
     ];
-    $this->template->load('admin', 'video/edit', array_merge($data, compact(['kategories', 'video', "kategori"])));
+    $this->template->load('admin', 'video/edit', array_merge($data, compact(['kategories', 'video', ($kategori ? "kategori" : null)])));
   }
   public function delete($id, $kategori = null)
   {

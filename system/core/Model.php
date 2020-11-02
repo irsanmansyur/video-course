@@ -64,6 +64,7 @@ class CI_Model
    */
   public function __construct()
   {
+
     $this->_inits();
   }
 
@@ -133,11 +134,18 @@ class CI_Model
     foreach ($all as $row => $value) {
       $b =  new $this;
       $b->_setData($value, $key);
+      $this->__setMethod($b);
       $a[] = $b;
     }
     $a =  $a;
     return  $a;
   }
+
+  protected function __setMethod($class)
+  {
+    $class_methods = get_class_methods($class);
+  }
+
   public function first($id = [], $val = null)
   {
     $this->db->from($this->_table);
@@ -173,7 +181,7 @@ class CI_Model
     return $dt;
   }
 
-  protected function where($key, $value = null)
+  public function where($key, $value = null)
   {
     if (!is_array($key)) {
       $key = array($key => $value);
@@ -230,6 +238,7 @@ class CI_Model
     $post = $post ?? $this->input->post();
     $this->db->insert($this->_table, $this->_data($post));
     $this->{$this->_primaryKey} = $this->db->insert_id();
+
     return $this;
   }
   public function update($post = null, $where = null)
@@ -282,13 +291,36 @@ class CI_Model
       return  $class->first($this->{$rel->COLUMN_NAME});
     }
   }
-  protected function ownedOne($class)
+  protected function belongsTo($class, $key_from = null, $key_to = null)
   {
-    $qr = "SELECT TABLE_NAME, COLUMN_NAME , REFERENCED_TABLE_NAME , REFERENCED_COLUMN_NAME FROM information_schema . KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_NAME='$this->_table' AND TABLE_NAME ='$class->_table'";
-    $rel =  $this->db->query($qr)->row();
-    if ($rel) {
-      return  $class->first($class->{$rel->COLUMN_NAME});
+    $parent = new $class;
+    $children = $this;
+
+
+    // Create an exception 
+    $ex = new Exception();
+    $trace = $ex->getTrace();
+    $final_call = $trace[1];
+
+    $final_call["function"];
+    if (isset($this->{$final_call["function"]})) {
+      return $this->{$final_call["function"]};
     }
+
+    if (!$key_from || is_null($key_from)) {
+      $qr = "SELECT TABLE_NAME, COLUMN_NAME , REFERENCED_TABLE_NAME , REFERENCED_COLUMN_NAME FROM information_schema . KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_NAME='{$parent->getTable()}' AND TABLE_NAME ='{$children->getTable()}'";
+      $rel =  $this->db->query($qr)->row();
+      if (!$rel) {
+        $parent->_status = "Not Relasiton please set Relasion";
+        return $parent;
+      }
+      $key_from = $rel->COLUMN_NAME;
+    }
+
+
+    $this->{$final_call["function"]} =  $parent->first($children->{$key_from});
+
+    return $this->{$final_call["function"]};
   }
   protected function ownedMany($class)
   {

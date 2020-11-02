@@ -58,6 +58,8 @@
             </form>
           </div>
         </div>
+        <?php $this->load->view("footers/style1.php"); ?>
+
       </div>
     </div>
 

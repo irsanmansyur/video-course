@@ -34,24 +34,50 @@
                 <i class="flaticon-right-arrow"></i>
               </li>
               <li class="nav-item active">
-                <a href="#">Laporan Mobil</a>
+                <a href="#">Daftar Pembayaran</a>
               </li>
             </ul>
           </div>
           <div class="card">
             <div class="card-header  d-flex justify-content-between">
               <div class="card-title"><?= $page_title; ?></div>
-              <a href="<?= base_url('admin/video/tambah' . (isset($kategori) && $kategori ? "/{$kategori->id}" : '')); ?>" class="btn btn-primary">Tambah</a>
+              <a href="<?= base_url('admin/pembayaran/tambah') ?>" class="btn btn-primary">Tambah</a>
             </div>
             <div class="card-body">
-              <div class="row">
-                <?php foreach ($videos as $video) : ?>
-                  <div class="col-md-4 key_me">
-                    <?php $this->load->view($thema_load . "pages/video/partials/_card-video.php", compact("video")); ?>
-                  </div>
-                <?php endforeach; ?>
+              <div class="table-responsive">
+                <table id="basic-datatables" class="table table-hover display table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nama User</th>
+                      <th scope="col">Tanggal Pembayaran</th>
+                      <th scope="col">Bukti Bayar</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($pembayarans as $pembayaran) :
+                      $pembayaran->user();
+                    ?>
+                      <tr class="key_me">
+                        <td><?= $no++; ?></td>
+                        <td><?= $pembayaran->user->name; ?></td>
+                        <td><?= date("d-m-Y", strtotime($pembayaran->created_at)); ?></td>
+                        <td>
+                          <div class="avatar avatar-xl">
+                            <img src="<?= base_url("assets/img/pembayaran/{$pembayaran->bukti_pembayaran}"); ?>" alt="..." class="avatar-img rounded-circle">
+                          </div>
+                        </td>
+                        <td>
+                          <a href="<?= base_url('admin/pembayaran/details/' . $pembayaran->id); ?>" class="btn btn-primary btn-sm rounded">Details</a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
               </div>
-              <?= $pagination; ?>
             </div>
           </div>
         </div>

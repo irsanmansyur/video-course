@@ -13,12 +13,22 @@ class Pembayaran extends Admin_Controller
   public function index()
   {
     if ($this->input->get("type") == "belum_acc")
-      $this->pembayaran_model->db->where("status", "0");
+      $this->pembayaran_model->where("status", "0");
     $pembayarans = $this->pembayaran_model->all();
     $data = [
       'page_title' => "Daftar Pembayaran User",
     ];
     $this->template->load('admin', 'pembayaran/index', array_merge($data, compact(['pembayarans'])));
+  }
+  public function detail($id)
+  {
+    $pembayaran = $this->pembayaran_model->first($id);
+    if (!$pembayaran) return $this->not_permition();
+
+    $data = [
+      'page_title' => "Details Pembayaran dari User",
+    ];
+    $this->template->load('admin', 'pembayaran/detail', array_merge($data, compact(['pembayaran'])));
   }
   public function belum_acc()
   {

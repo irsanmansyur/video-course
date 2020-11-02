@@ -33,7 +33,7 @@
                 <i class="flaticon-right-arrow"></i>
               </li>
               <li class="nav-item">
-                <a href=<?= base_url('admin/video' . (isset($kategori) && $kategori ? "/kategori/{$kategori->id}" : '')); ?>>Kategori <?= $kategori->name; ?> </a>
+                <a href=<?= base_url('admin/video' . (isset($kategori) && $kategori ? "/kategori/{$kategori->id}" : '')); ?>>Kategori <?= isset($kategori) && $kategori ? $kategori->name : ''; ?> </a>
               </li>
               <li class="separator">
                 <i class="flaticon-right-arrow"></i>
@@ -58,6 +58,8 @@
             </form>
           </div>
         </div>
+        <?php $this->load->view("footers/style1.php"); ?>
+
       </div>
     </div>
 

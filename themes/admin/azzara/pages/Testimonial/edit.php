@@ -33,7 +33,7 @@
                 <i class="flaticon-right-arrow"></i>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('admin/kategori'); ?>">Kategori</a>
+                <a href=<?= base_url('admin/testimonial') ?>>Testimonial </a>
               </li>
               <li class="separator">
                 <i class="flaticon-right-arrow"></i>
@@ -45,11 +45,11 @@
           </div>
           <div class="card">
             <div class="card-header">
-              <div class="card-title">Form Tambah data Kategori</div>
+              <div class="card-title">Form Edit data Testimonial</div>
             </div>
             <form action="" method="post" enctype="multipart/form-data">
               <div class="card-body">
-                <?php $this->load->view($thema_load . "pages/kategori/partials/_input.php"); ?>
+                <?php $this->load->view($thema_load . "pages/testimonial/partials/_input.php"); ?>
               </div>
               <div class="card-action">
                 <button class="btn btn-success" type="submit">Submit</button>
@@ -62,7 +62,6 @@
 
       </div>
     </div>
-
 
   </div>
   <?php $this->load->view($thema_load . "partials/_js_files.php"); ?>

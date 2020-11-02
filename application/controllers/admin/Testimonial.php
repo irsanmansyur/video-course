@@ -13,6 +13,7 @@ class Testimonial extends Admin_Controller
   public function index()
   {
     $testimonials = $this->testimonial_model->all();
+
     $data = [
       'page_title' => "Daftar Testimonial User",
     ];
