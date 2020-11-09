@@ -38,4 +38,12 @@ class Kategori_model extends CI_Model
   {
     return  $this->db->count_all_results($this->getTable());
   }
+  public function takeImage()
+  {
+    if (isset($this->image)) {
+      if (is_file(FCPATH . 'assets/img/kategori/' . $this->image))
+        return base_url('assets/img/kategori/' . $this->image);
+    }
+    return base_url('assets/img/no-image.png');
+  }
 }

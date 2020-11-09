@@ -125,7 +125,9 @@ class CI_Model
   {
 
     $this->db->from($this->getTable());
-    if ($key && $key !== "_newFields")
+    if (is_int($key))
+      $this->db->limit($key);
+    else if ($key && $key !== "_newFields")
       $this->where($key, $val);
 
     $all = $this->db->get()->result();
@@ -236,6 +238,7 @@ class CI_Model
   public function save($post = null)
   {
     $post = $post ?? $this->input->post();
+    
     $this->db->insert($this->_table, $this->_data($post));
     $this->{$this->_primaryKey} = $this->db->insert_id();
 

@@ -21,10 +21,14 @@ class Home extends MY_Controller
    */
   public function index()
   {
+    $this->load->model(["testimonial_model", "kategori_model"]);
+
+    $kategories = $this->kategori_model->all(6);
+    $testimonials = $this->testimonial_model->all(10);
     $data = [
       "page_title" => "Selamat Datang",
     ];
 
-    $this->template->load('public', 'home/index', array_merge($data, compact([])));
+    $this->template->load('public', 'home/index', array_merge($data, compact(['testimonials', "kategories"])));
   }
 }

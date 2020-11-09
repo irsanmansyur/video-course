@@ -37,7 +37,7 @@
 
     <?php $this->load->view($thema_load . "components/section/why-us.php"); ?>
 
-    <?php $this->load->view($thema_load . "components/section/service.php"); ?>
+    <?php $this->load->view($thema_load . "components/section/video-saham.php"); ?>
 
 
     <!--==========================
@@ -62,7 +62,7 @@
 
 
 
-    <?php $this->load->view($thema_load . "components/section/client.php"); ?>
+    <?php $this->load->view($thema_load . "components/section/testimonials.php"); ?>
     <?php $this->load->view($thema_load . "components/section/team.php"); ?>
     <?php $this->load->view($thema_load . "components/section/asked.php"); ?>
   </main>

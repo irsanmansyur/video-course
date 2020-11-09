@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route["auth"] = "auth/login";
+$route["login"] = "auth/login";
+$route["register/(:any)"] = "auth/register/index/$1";
 /*
 | -------------------------------------------------------------------------
 | Sample REST API Routes

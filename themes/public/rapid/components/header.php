@@ -31,7 +31,7 @@
         </li>
         <li><a href="#team">Tim</a></li>
         <li><a href="#footer">Hubungi Kami</a></li>
-        <li><a href="#login">Login</a></li>
+        <li><a href="/login">Login</a></li>
       </ul>
     </nav><!-- .main-nav -->
 
