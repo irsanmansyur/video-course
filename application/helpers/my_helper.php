@@ -11,7 +11,7 @@ if (!function_exists('back')) {
   function back($back = true)
   {
     if (!$back)
-      return $_SERVER['HTTP_REFERER'];
+      return $_SERVER['HTTP_REFERER'] ?? base_url();
     return  redirect($_SERVER['HTTP_REFERER']);
   }
 }

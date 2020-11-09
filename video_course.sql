@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 02, 2020 at 02:02 PM
+-- Generation Time: Nov 09, 2020 at 01:36 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -39,12 +39,10 @@ CREATE TABLE `access_menu_role` (
 --
 
 INSERT INTO `access_menu_role` (`id`, `role_id`, `menu_id`) VALUES
-(13, 1, 1),
-(14, 1, 2),
-(15, 2, 2),
-(16, 2, 3),
-(17, 2, 4),
-(18, 2, 5);
+(1, 2, 2),
+(2, 2, 3),
+(3, 2, 5),
+(4, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -55,16 +53,19 @@ INSERT INTO `access_menu_role` (`id`, `role_id`, `menu_id`) VALUES
 CREATE TABLE `access_role_user` (
   `id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `jabatan` varchar(88) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `access_role_user`
 --
 
-INSERT INTO `access_role_user` (`id`, `role_id`, `user_id`) VALUES
-(1, 1, 1),
-(2, 2, 2);
+INSERT INTO `access_role_user` (`id`, `role_id`, `user_id`, `created_at`, `jabatan`) VALUES
+(3, 1, 1, '2020-11-08 01:41:16', ''),
+(4, 2, 2, '2020-11-08 01:41:16', ''),
+(101, 2, 13, '2020-11-09 21:01:37', 'Karyawan');
 
 -- --------------------------------------------------------
 
@@ -77,14 +78,6 @@ CREATE TABLE `access_submenu_role` (
   `role_id` int(11) NOT NULL,
   `submenu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `access_submenu_role`
---
-
-INSERT INTO `access_submenu_role` (`id`, `role_id`, `submenu_id`) VALUES
-(10, 1, 1),
-(12, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -156,13 +149,7 @@ CREATE TABLE `pembayaran` (
 
 INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`) VALUES
 (1, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(2, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(3, 2, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(4, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(5, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(6, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(7, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(8, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0);
+(3, 2, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0);
 
 -- --------------------------------------------------------
 
@@ -180,9 +167,9 @@ CREATE TABLE `rules` (
 --
 
 INSERT INTO `rules` (`id`, `name`) VALUES
-(1, 'Super Admin'),
 (2, 'Admin'),
-(3, 'Pemilik');
+(1, 'Super Admin'),
+(46, 'User');
 
 -- --------------------------------------------------------
 
@@ -203,7 +190,7 @@ CREATE TABLE `settings` (
 
 INSERT INTO `settings` (`id`, `name`, `value`, `status`) VALUES
 (1, 'theme_admin', 'azzara', 0),
-(2, 'theme_public', 'default', 0),
+(2, 'theme_public', 'rapid', 0),
 (12, 'name_app', 'Video Course', 0),
 (14, 'Alamat', 'Kamp. Sarroanging Desa Mappilawing', 0);
 
@@ -256,8 +243,8 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `user_id`, `keterangan`, `foto`) VALUES
-(4, 2, 'Tidak bagus lagis', ''),
-(5, 1, 'Tidak bagus lagi', '');
+(5, 1, 'Tidak bagus lagi', 'petani.jpg'),
+(6, 1, 'Tidak bagus lagi', 'folder-iphone-icon.png');
 
 -- --------------------------------------------------------
 
@@ -268,6 +255,7 @@ INSERT INTO `testimonial` (`id`, `user_id`, `keterangan`, `foto`) VALUES
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(22) NOT NULL,
+  `codeReferal` varchar(22) NOT NULL,
   `email` varchar(30) NOT NULL,
   `name` varchar(122) NOT NULL,
   `email_verified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -283,9 +271,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
-(1, 'Super Admin', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'Admin', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '2RH3pNBhu2KofNcx58pyrlTgKxTknN76xcjtsvNEoyjjq_Zjec4_OlnDl3Bn03wMAwacfFFxyKdTNsTvbPBLCA==', 1);
+INSERT INTO `users` (`id`, `username`, `codeReferal`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
+(1, 'Super Admin', '', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
+(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'lOezfzIHZMylU/BHCDW9U2kDugQKghXooc6lGQgsqtY4h6oSUPEdKdOwFSOO7fF8jQa4mbMyUA9MgxIHphl80A==', 1),
+(13, 'irsanm', '', 'irsan00mansyur@gmail.com', 'Irsan Mansyur', '2020-11-09 21:01:03', '$2y$10$Ahn895EfYReqS2FDDi0mbe.oZMY17iYXrXjCzv/iaazrCthegScuW', '20190914_203226_2-min5.jpg', '2020-11-09 21:01:03', '2020-11-09 21:01:03', 'PqlJ7sxdst1FTPUE8ge6TU5hAC/bxTwhYUrrQOJewK5sQl6XiMyw86/4xf7gMf/AcjWEgj6kzYqn5SLCLTf9Xw==', 1);
 
 -- --------------------------------------------------------
 
@@ -304,6 +293,13 @@ CREATE TABLE `videos` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `videos`
+--
+
+INSERT INTO `videos` (`id`, `kategori_id`, `no_urut`, `title`, `description`, `file`, `created_at`, `updated_at`, `status`) VALUES
+(3, 5, 3, 'Blade dengan tehnik yang bagus', 'dsfdfdfdfdffdf', '2_Install_Laravel_7_pastinya.mp4', '2020-11-02 23:06:02', '2020-11-02 23:06:02', 1);
 
 --
 -- Indexes for dumped tables
@@ -350,13 +346,15 @@ ALTER TABLE `menus`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id_2` (`user_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `rules`
 --
 ALTER TABLE `rules`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `settings`
@@ -402,19 +400,19 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `access_menu_role`
 --
 ALTER TABLE `access_menu_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `access_role_user`
 --
 ALTER TABLE `access_role_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `access_submenu_role`
 --
 ALTER TABLE `access_submenu_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kategories`
@@ -432,13 +430,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rules`
 --
 ALTER TABLE `rules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -456,19 +454,19 @@ ALTER TABLE `submenus`
 -- AUTO_INCREMENT for table `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

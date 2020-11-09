@@ -36,6 +36,7 @@
       <?php $this->load->view($thema_load . "partials/_alert.php"); ?>
       <form method="post">
         <div class="login-form">
+
           <div class="form-group form-floating-label">
             <input id="fullname" value="<?= set_value("fullname"); ?>" name="fullname" type="text" class="form-control input-border-bottom">
             <label for="fullname" class="placeholder">Fullname</label>

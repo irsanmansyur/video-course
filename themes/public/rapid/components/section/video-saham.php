@@ -10,7 +10,7 @@
       </header>
       <div class="row">
         <?php
-        $background_colors = array('#282E33', '#25373A', '#164852', '#495E67', '#FF3838');
+        $background_colors = array('#00A4CCFF', '#F95700FF', '#ADEFD1FF', '#00203FFF', '#D6ED17FF', "#ED2B33FF", "#97BC62FF", "#2C5F2D", "#00539CFF");
         if (count($kategories) == 4 || count($kategories) > 4) $count = 4;
         else if (count($kategories) == 2 || count($kategories) == 4) $count = 6;
         else $count = 12;

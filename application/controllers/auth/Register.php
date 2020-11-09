@@ -58,10 +58,11 @@ class Register extends MY_Controller
     $name =  $this->input->post('fullname') ? $this->input->post('fullname') : $this->input->post('nama_depan') . " " . $this->input->post('nama_belakan');
     $username =  $this->input->post('username');
     $password = password_hash($this->input->post('passwordsignin'), PASSWORD_DEFAULT);
-    $jkl = $this->input->post('jkl');
     $status = 0;
 
     $data = compact(["email", 'username', 'password', 'name', 'status', 'jkl']);
+    $jkl = $this->input->post('jkl');
+    if ($jkl) $data["jkl"] = $jkl;
     $data["codeReferal"] = $this->input->post("codeReferal");
     $user = $this->user_model->save($data);
 

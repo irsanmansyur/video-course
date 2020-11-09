@@ -63,7 +63,7 @@
 
 
     <?php $this->load->view($thema_load . "components/section/testimonials.php"); ?>
-    <?php $this->load->view($thema_load . "components/section/team.php"); ?>
+    <?php $this->load->view($thema_load . "components/section/admin.php"); ?>
     <?php $this->load->view($thema_load . "components/section/asked.php"); ?>
   </main>
 
