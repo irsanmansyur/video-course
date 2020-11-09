@@ -48,6 +48,6 @@ class Register extends MY_Controller
       $data["codeReferal"] = $this->input->post("codeReferal");
 
     $user = $this->user_model->save($data);
-    $this->db->insert("tbl_role_user", ['role_id' => 4, "user_id" => $user->id]);
+    $this->db->insert("access_role_user", ['role_id' => 4, "user_id" => $user->id]);
   }
 }
