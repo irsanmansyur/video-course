@@ -67,7 +67,7 @@
                         <td><?= $testimonial->keterangan; ?></td>
                         <td>
                           <div class="avatar avatar-xl">
-                            <img src="<?= base_url("assets/img/profile/{$testimonial->user->profile}"); ?>" alt="..." class="avatar-img rounded-circle">
+                            <img src="<?= base_url("assets/img/" . ($testimonial->foto ? 'testimonial/' . $testimonial->foto : 'profile/' . $testimonial->user->profile)); ?>" alt="..." class="avatar-img rounded-circle">
                           </div>
                         </td>
 

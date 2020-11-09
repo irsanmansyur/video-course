@@ -26,6 +26,10 @@ class Testimonial extends Admin_Controller
 
     $this->form_validation->set_rules($testimonial->getRules());
     if ($this->form_validation->run()) {
+
+      $foto  = $this->upload($testimonial->foto);
+      if (!$foto) return back();
+      $testimonial->foto  = $foto;
       $testimonial->save();
       flashDataDB("success", "Testimonial telah di tambahkan");
       return redirect("admin/testimonial");
@@ -44,6 +48,9 @@ class Testimonial extends Admin_Controller
     $users = $this->user_model->all();
     $this->form_validation->set_rules($testimonial->getRules());
     if ($this->form_validation->run()) {
+      $foto  = $this->upload($testimonial->foto);
+      if (!$foto) return back();
+      $testimonial->foto = $foto;
       $testimonial->update();
       flashDataDB("success", "Testimonial telah di Edit");
       return redirect("admin/testimonial");
@@ -60,5 +67,23 @@ class Testimonial extends Admin_Controller
     if (!$testimonial) return $this->not_permition();
     $testimonial->delete();
     echo json_encode(flashDataDB('success', "Testimonial dari " . $testimonial->user()->name . " Telah di hapus"));
+  }
+  private function upload($filename = 'default.jpg')
+  {
+    if ($_FILES['foto']['name']) {
+      $config['allowed_types'] = 'gif|jpg|jpeg|png';
+      $config['max_size']      = '2048';
+      $config['upload_path'] = './assets/img/testimonial/';
+      $this->load->library('upload', $config);
+      if ($this->upload->do_upload('foto')) {
+        if (is_file(FCPATH . 'assets/img/testimonial/' . $filename) && $filename != 'default.jpg')
+          unlink(FCPATH . 'assets/img/testimonial/' . $filename);
+        $filename = $this->upload->data('file_name');
+      } else {
+        $this->session->set_flashdata("foto", "<div class='error text-danger'>{$this->upload->display_errors()}</div>");
+        return false;
+      }
+    }
+    return $filename;
   }
 }

@@ -13,16 +13,16 @@
   <input class="form-control" id="keterangan" placeholder="Enter Keterangan Testimonial" name="keterangan" value="<?= set_value("keterangan", null) ?? $testimonial->keterangan ?>">
   <?= form_error("keterangan", "<div class='danger text-danger'>", "</div>"); ?>
 </div>
-<!-- 
+
 <div class="form-group">
   <div class="form-group form-group-default">
     <h3>Ganti Gambar (Klik gambar di bawah)</h3>
     <div class="card-avatar">
-      <input type="file" name="gambar" id="imagechange" class="d-none">
+      <input type="file" name="foto" id="imagechange" class="d-none">
       <a href="#pablo" id="changePhoto">
-        <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= base_url("assets/img/testimonial/" . ($testimonial->image ?? "default.jpg")); ?>">
+        <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= base_url("assets/img/testimonial/" . ($testimonial->foto ?? "default.jpg")); ?>">
       </a>
     </div>
-    <?= $this->session->flashdata("image"); ?>
+    <?= $this->session->flashdata("foto"); ?>
   </div>
-</div> -->
+</div>
