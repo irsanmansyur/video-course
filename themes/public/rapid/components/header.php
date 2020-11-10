@@ -1,22 +1,12 @@
 <header id="header">
 
-  <div id="topbar">
-    <div class="container">
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-      </div>
-    </div>
-  </div>
 
   <div class="container">
 
     <div class="logo float-left">
       <!-- Uncomment below if you prefer to use an image logo -->
-      <h1 class="text-light"><a href="#intro" class="scrollto"><span>Sahampreneur</span></a></h1>
-      <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+      <!-- <h1 class="text-light"><a href="#intro" class="scrollto"><span>Sahampreneur</span></a></h1> -->
+      <a href="#header" class="scrollto"><img src="/assets/img/logo/sahampreneur.png" alt="" class="img-fluid" style="padding: 0;margin-top: -20px;max-height: 91px;"></a>
     </div>
 
     <nav class="main-nav float-right d-none d-lg-block">
@@ -31,7 +21,15 @@
         </li>
         <li><a href="#team">Tim</a></li>
         <li><a href="#footer">Hubungi Kami</a></li>
-        <li><a href="/login">Login</a></li>
+        <?php if (is_login()) : ?>
+          <li> <a href="#"> <?= user()->name; ?></a></li>
+          <li>
+            <form action="auth/logout" method="post"><button type="submit" class="btn btn-danger p-2">Logout</button></form>
+          </li>
+        <?php else : ?>
+          <li><a href="/login/user">Login</a></li>
+          <li><a href="/register/user">Register</a></li>
+        <?php endif; ?>
       </ul>
     </nav><!-- .main-nav -->
 

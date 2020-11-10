@@ -59,7 +59,7 @@ class User extends Admin_Controller
   public function list()
   {
     in_role([1, 2]);
-    $this->db->select("u.*,rules.name as name_rules");
+    $this->db->select("u.*,u.id,u.name,rules.name as name_rules");
     $this->db->from("users u")
       ->where_not_in("u.id", [1, 2]);
 

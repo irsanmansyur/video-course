@@ -11,6 +11,7 @@
 
   <!-- STYLE CSS -->
   <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css">
+  <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="<?= $thema_folder; ?>assets/auth/css/style.css">
 </head>
 
@@ -19,9 +20,9 @@
   <div class="wrapper" style="background-image: url('<?= $thema_folder; ?>assets/auth/images/bg-registration-form-1.jpg');">
     <div class="inner">
       <div class="image-holder">
-        <img src="<?= $thema_folder; ?>assets/auth/images/registration-form-1.jpg" alt="">
+        <img src="<?= $thema_folder; ?>assets/auth/images/registration-form-1.jpg" alt="" style="height: 100%;">
       </div>
-      <form method="post">
+      <form method="post" id="formMe">
         <h3>Registration Form</h3>
         <div class="form-group " style=" margin-bottom: 25px;">
           <div class="row">
@@ -73,13 +74,66 @@
           <i class="zmdi zmdi-lock"></i>
           <?= form_error("codeReferal", "<div class='text-danger'>", "</div>"); ?>
         </div>
-
-        <button type="submit">Register
+        <div class="form-check " data-toggle="modal" data-target="#exampleModalLong">
+          <input type="checkbox" hidden class="form-check-input" name="accept">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" id="cekAccept" style="color: black;">Term and Policy</label>
+        </div>
+        <button type="submit" id="registerNow" disabled>Register
           <i class="zmdi zmdi-arrow-right"></i>
         </button>
       </form>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl h-100" role="document">
+      <div class="modal-content  h-75">
+        <div class="modal-header" style="justify-content: space-between;">
+          <h5 class="modal-title" id="exampleModalLongTitle">Term And Policy</h5>
+          <button type="button" style="width:50px;margin:0;background:transparent" name="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="font-size:40px;color:black;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body h-100">
+          <iframe src="https://drive.google.com/file/d/1uSTLkKHvYvXoANBMEJNe1zke84KRcz28/preview" style="width:100%;height:100%" frameborder="0"></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary noaccept" data-dismiss="modal">No</button>
+          <button type="button" id="acceptMe" class="btn btn-primary">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let cekMe = document.querySelectorAll(["#cekAccept", "#exampleCheck1"]);
+    [...cekMe].forEach(cek => {
+      cek.addEventListener('click', e => {
+        if (document.getElementById("exampleCheck1").checked == true) document.getElementById("exampleCheck1").checked = false;
+        e.preventDefault();
+      })
+      let meAcc = document.getElementById("acceptMe");
+      meAcc.addEventListener("click", function() {
+        document.querySelector("[name=accept]").checked = true;
+        document.querySelector("[name=close_modal]").click();
+        document.getElementById("exampleCheck1").checked = true;
+        document.getElementById("registerNow").disabled = false;
+
+      })
+      document.querySelector(".noaccept").addEventListener("click", function() {
+        document.querySelector("[name=accept]").checked = false;
+        document.getElementById("exampleCheck1").checked = false;
+        document.getElementById("registerNow").disabled = true;
+
+      })
+    })
+    document.getElementById("formMe").addEventListener("submit", e => {
+      if (document.querySelector("[name=accept]").checked == false || document.getElementById("exampleCheck1").checked == false)
+        e.preventDefault();
+    })
+  </script>
+  <!-- insert just before the closing body tag </body> -->
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

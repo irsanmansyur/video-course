@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 09, 2020 at 01:36 PM
+-- Generation Time: Nov 10, 2020 at 07:40 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -65,7 +65,7 @@ CREATE TABLE `access_role_user` (
 INSERT INTO `access_role_user` (`id`, `role_id`, `user_id`, `created_at`, `jabatan`) VALUES
 (3, 1, 1, '2020-11-08 01:41:16', ''),
 (4, 2, 2, '2020-11-08 01:41:16', ''),
-(101, 2, 13, '2020-11-09 21:01:37', 'Karyawan');
+(106, 46, 18, '2020-11-10 15:27:17', '');
 
 -- --------------------------------------------------------
 
@@ -140,16 +140,18 @@ CREATE TABLE `pembayaran` (
   `updated_at` datetime NOT NULL,
   `jumlah` int(11) NOT NULL,
   `bukti_pembayaran` varchar(223) NOT NULL,
-  `status` int(1) DEFAULT '0'
+  `status` int(1) DEFAULT '0',
+  `alasan` varchar(122) NOT NULL,
+  `updated` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pembayaran`
 --
 
-INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`) VALUES
-(1, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0),
-(3, 2, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0);
+INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`, `alasan`, `updated`) VALUES
+(1, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 2, 'asasasa', 0),
+(3, 2, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0, ' ', 1);
 
 -- --------------------------------------------------------
 
@@ -223,7 +225,9 @@ INSERT INTO `submenus` (`id`, `menu_id`, `name`, `icon`, `url`, `status`, `is_ac
 (9, 3, 'Kategori', '', 'admin/kategori', 1, 'public'),
 (11, 3, 'List Video', '', 'admin/video', 1, 'public'),
 (12, 4, 'List Testimonial', '', 'admin/testimonial', 1, 'public'),
-(13, 5, 'Belum Di ACC', '', 'admin/pembayaran?type=belum_acc', 1, 'public');
+(13, 5, 'Belum Di ACC', '', 'admin/pembayaran?type=belum_acc', 1, 'public'),
+(14, 5, 'Diterima', '', 'admin/pembayaran?type=diterima', 1, 'public'),
+(16, 2, 'Users Setting', '', 'admin/user/list', 1, 'public');
 
 -- --------------------------------------------------------
 
@@ -273,8 +277,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `codeReferal`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
 (1, 'Super Admin', '', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'lOezfzIHZMylU/BHCDW9U2kDugQKghXooc6lGQgsqtY4h6oSUPEdKdOwFSOO7fF8jQa4mbMyUA9MgxIHphl80A==', 1),
-(13, 'irsanm', '', 'irsan00mansyur@gmail.com', 'Irsan Mansyur', '2020-11-09 21:01:03', '$2y$10$Ahn895EfYReqS2FDDi0mbe.oZMY17iYXrXjCzv/iaazrCthegScuW', '20190914_203226_2-min5.jpg', '2020-11-09 21:01:03', '2020-11-09 21:01:03', 'PqlJ7sxdst1FTPUE8ge6TU5hAC/bxTwhYUrrQOJewK5sQl6XiMyw86/4xf7gMf/AcjWEgj6kzYqn5SLCLTf9Xw==', 1);
+(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'y9dZOVJ_CyKQKk/HdkHe_02zRysOz_SGTLv_7/chM1FCBwCjHb6ZyDw7AQLDJxhm9Gt2faBHp7jrjJVuZa4b7g==', 1),
+(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'ctAZOSy08VcQOuvsniOLoOACGnUtDJTwmroISPyja3oJCA8dBvhHffNWcbd03JEakKnFcWf8rgTArVQrMczdRg==', 1);
 
 -- --------------------------------------------------------
 
@@ -406,7 +410,7 @@ ALTER TABLE `access_menu_role`
 -- AUTO_INCREMENT for table `access_role_user`
 --
 ALTER TABLE `access_role_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `access_submenu_role`
@@ -448,7 +452,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -460,7 +464,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `videos`

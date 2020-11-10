@@ -13,7 +13,9 @@ class Pembayaran extends Admin_Controller
   public function index()
   {
     if ($this->input->get("type") == "belum_acc")
-      $this->pembayaran_model->where("status", "0");
+      $this->pembayaran_model->db->where_not_in('status', [1]);
+    elseif ($this->input->get("type") == "diterima")
+      $this->pembayaran_model->db->where('status', 1);
     $pembayarans = $this->pembayaran_model->all();
     $data = [
       'page_title' => "Daftar Pembayaran User",
@@ -24,6 +26,23 @@ class Pembayaran extends Admin_Controller
   {
     $pembayaran = $this->pembayaran_model->first($id);
     if (!$pembayaran) return $this->not_permition();
+
+    if ($this->input->method() == "post") {
+      $pembayaran->updated = '  ';
+      if ($this->input->post('alasan')) {
+        $pembayaran->alasan = $this->input->post('alasan');
+        $pembayaran->status = 2;
+
+        $pembayaran->update();
+        flashDataDB("warning", "Pembayaran telah di Tolak");
+      } else {
+        $pembayaran->status = 1;
+        $pembayaran->alasan = " ";
+        $pembayaran->update();
+        flashDataDB("success", "Pembayaran telah di diterima");
+      }
+      return redirect("admin/pembayaran?type=belum_acc");
+    }
 
     $data = [
       'page_title' => "Details Pembayaran dari User",

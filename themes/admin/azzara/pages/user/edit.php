@@ -57,21 +57,8 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="card card-profile card-secondary">
-                <div class="card-header" style="background-image: url('<?= $thema_folder; ?>assets/img/blogpost.jpg')">
-                  <div class="profile-picture">
-                    <div class="avatar avatar-xl">
-                      <img src="<?= base_url('assets/img/profile/' . $user->profile) ?>" alt="..." class="avatar-img rounded-circle">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="user-profile text-center">
-                    <div class="name"><?= $user->nama_user; ?>,</div>
-                    <div class="email"><?= $user->email; ?></div>
-                  </div>
-                </div>
-              </div>
+              <?php $this->load->view($thema_load . "partials/_card_profile.php"); ?>
+
             </div>
           </div>
         </div>

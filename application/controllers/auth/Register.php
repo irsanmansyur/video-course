@@ -22,7 +22,7 @@ class Register extends MY_Controller
     $this->load->library("form_validation");
     $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
     if ($type == "user") {
-      $this->form_validation->set_rules('nama_depan', 'Nama Depan', 'trim|required|min[3]');
+      $this->form_validation->set_rules('nama_depan', 'Nama Depan', 'trim|required|min_length[3]');
       $this->form_validation->set_rules('nama_belakan', 'Nama Belakan', 'trim');
     } else {
       $this->form_validation->set_rules('fullname', 'fullname', 'trim|required');
@@ -58,9 +58,10 @@ class Register extends MY_Controller
     $name =  $this->input->post('fullname') ? $this->input->post('fullname') : $this->input->post('nama_depan') . " " . $this->input->post('nama_belakan');
     $username =  $this->input->post('username');
     $password = password_hash($this->input->post('passwordsignin'), PASSWORD_DEFAULT);
-    $status = 0;
+    $status = 1;
 
     $data = compact(["email", 'username', 'password', 'name', 'status', 'jkl']);
+
     $jkl = $this->input->post('jkl');
     if ($jkl) $data["jkl"] = $jkl;
     $data["codeReferal"] = $this->input->post("codeReferal");

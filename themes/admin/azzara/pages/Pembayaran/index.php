@@ -51,7 +51,6 @@
                       <th scope="col">#</th>
                       <th scope="col">Nama User</th>
                       <th scope="col">Tanggal Pembayaran</th>
-                      <th scope="col">Bukti Bayar</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
@@ -66,13 +65,14 @@
                         <td><?= $pembayaran->user->name; ?></td>
                         <td><?= date("d-m-Y", strtotime($pembayaran->created_at)); ?></td>
                         <td>
-                          <div class="avatar avatar-xl">
-                            <img src="<?= base_url("assets/img/pembayaran/{$pembayaran->bukti_pembayaran}"); ?>" alt="..." class="avatar-img rounded-circle">
-                          </div>
-                        </td>
-                        <td>
-                          <a href="<?= base_url('admin/pembayaran/details/' . $pembayaran->id); ?>" class="btn btn-primary btn-sm rounded">Details</a>
-                        </td>
+
+                          <a href="<?= base_url('admin/pembayaran/detail/' . $pembayaran->id); ?>" class="btn btn-info">
+                            <span class="btn-label">
+                              <i class="fa fa-info"></i>
+                              Details <?php if ($pembayaran->updated) : ?> <sup class="text-danger">new</sup> <?php endif; ?>
+                            </span>
+                          </a> </td>
+
                       </tr>
                     <?php endforeach; ?>
                   </tbody>

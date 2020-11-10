@@ -32,4 +32,8 @@ class Pembayaran_model extends CI_Model
   {
     return $this->belongsTo($this->user_model);
   }
+  public function getTakeBuktiPembayaran()
+  {
+    return base_url("assets/img/pembayaran/" . $this->bukti_pembayaran);
+  }
 }

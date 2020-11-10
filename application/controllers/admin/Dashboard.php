@@ -10,13 +10,8 @@ class Dashboard extends Admin_Controller
 
   function index()
   {
-    $menu = $this->is_user->menus;
-    foreach ($menu as $row)
-      foreach ($row->submenu as $rsow) {
-        // print_r($rsow);
-      }
-
-    // die();
+    if (in_role("User"))
+      return redirect("/home");
     if (in_role(1, true))
       $this->super_admin();
     elseif (in_role(["pemilik"], true))
