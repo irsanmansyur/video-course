@@ -25,7 +25,7 @@
         <?php endforeach; ?>
       </div>
       <div class="text-right">
-        <a href="<?= base_url("videos"); ?>" class="btn btn-primary btn-rounded">Cek Video Selengkapnya</a>
+        <a href="<?= base_url("video"); ?>" class="btn btn-primary btn-rounded">Cek Video Selengkapnya</a>
       </div>
     </div>
 

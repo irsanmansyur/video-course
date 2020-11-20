@@ -50,9 +50,9 @@
 
           <div class="form">
 
-            <h4>Send us a message</h4>
-            <p>Setelah data diisi maka masuk ke inbox/data admin.</p>
-            <form action="" method="post" role="form" class="contactForm">
+            <h4>Apa ada keluhan atau masukan anda?</h4>
+            <p>Kirim Keluhan atau masukan anda disini.</p>
+            <form action="api/kirim/masukan" method="post" id="myForm" name="myForm" role="form" class="contactForm">
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
@@ -66,13 +66,12 @@
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5" data-rule="minlen:4" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validation"></div>
               </div>
 
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
-
               <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
             </form>
           </div>

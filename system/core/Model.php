@@ -106,12 +106,11 @@ class CI_Model
       $fields = $this->_allowed;
 
     $data = array_merge((array)$this, $data);
-
     $newData = [];
     if ($fields) {
       foreach ($data as $key => $val) {
         if (in_array($key, $fields)) {
-          $this->key = $val;
+          $this->{$key} = $val;
           if ($val)
             $newData[$key] =  $val;
         }
@@ -238,7 +237,7 @@ class CI_Model
   public function save($post = null)
   {
     $post = $post ?? $this->input->post();
-    
+
     $this->db->insert($this->_table, $this->_data($post));
     $this->{$this->_primaryKey} = $this->db->insert_id();
 

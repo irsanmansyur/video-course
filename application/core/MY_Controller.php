@@ -16,6 +16,8 @@ class MY_Controller extends CI_Controller
   function __construct($config = "my_auth_ci3")
   {
     parent::__construct();
+    $sql = "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))";
+    $this->db->query($sql);
     date_default_timezone_set('Asia/Jakarta');
     $this->load->library("session");
     $this->load->helper('form');

@@ -48,6 +48,8 @@ function hasilCUD($message = "Sukses.!")
 function flashDataDB($type = 'success', $message = "Sukses.!")
 {
   $ci = get_instance();
+  if (!isset($ci->session))
+    $ci->load->library("session");
   $hasil = [
     'status' => true,
   ];
