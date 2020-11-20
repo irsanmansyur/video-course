@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2020 at 07:40 AM
+-- Generation Time: Nov 20, 2020 at 03:42 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -42,7 +42,8 @@ INSERT INTO `access_menu_role` (`id`, `role_id`, `menu_id`) VALUES
 (1, 2, 2),
 (2, 2, 3),
 (3, 2, 5),
-(4, 2, 4);
+(4, 2, 4),
+(5, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -106,6 +107,29 @@ INSERT INTO `kategories` (`id`, `name`, `keterangan`, `image`, `no_urut`, `statu
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `masukan`
+--
+
+CREATE TABLE `masukan` (
+  `id` int(11) NOT NULL,
+  `name` varchar(133) NOT NULL,
+  `email` varchar(122) NOT NULL,
+  `subject` varchar(224) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `masukan`
+--
+
+INSERT INTO `masukan` (`id`, `name`, `email`, `subject`, `message`) VALUES
+(52, 'Managemen Access f', 'super-admin@gmail.com', 'dgdfg', 'yhtgfh'),
+(53, 'Yamaha', 'super-admin@gmail.com', 'dgdfg', 'gfdd'),
+(54, 'hfghfggfg', 'jkhghjghgf@jhghfg.bvh', 'hjghjgfgh', 'hjkghjkig\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `menus`
 --
 
@@ -125,7 +149,8 @@ INSERT INTO `menus` (`id`, `name`, `icon`, `url`) VALUES
 (2, 'Setting', '', ''),
 (3, 'Video', '', ''),
 (4, 'Testimonial', '', ''),
-(5, 'Pembayaran', '', '');
+(5, 'Pembayaran', '', ''),
+(6, 'Lainya', '', '');
 
 -- --------------------------------------------------------
 
@@ -136,11 +161,11 @@ INSERT INTO `menus` (`id`, `name`, `icon`, `url`) VALUES
 CREATE TABLE `pembayaran` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `jumlah` int(11) NOT NULL,
   `bukti_pembayaran` varchar(223) NOT NULL,
-  `status` int(1) DEFAULT '0',
+  `status` int(1) DEFAULT '0' COMMENT '0 = wait; 1 = di terima ; 2 = di tolak ; 9 = belum',
   `alasan` varchar(122) NOT NULL,
   `updated` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -150,8 +175,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`, `alasan`, `updated`) VALUES
-(1, 1, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 2, 'asasasa', 0),
-(3, 2, '2020-10-07 00:00:00', '2020-10-14 00:00:00', 3434, 'dfgdgd', 0, ' ', 1);
+(4, 18, '2020-11-25 00:00:00', '2020-11-18 00:00:00', 200000, 'LOGO_KABUPATEN_BANTAENG.png', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +218,8 @@ INSERT INTO `settings` (`id`, `name`, `value`, `status`) VALUES
 (1, 'theme_admin', 'azzara', 0),
 (2, 'theme_public', 'rapid', 0),
 (12, 'name_app', 'Video Course', 0),
-(14, 'Alamat', 'Kamp. Sarroanging Desa Mappilawing', 0);
+(14, 'Alamat', 'Kamp. Sarroanging Desa Mappilawing', 0),
+(15, 'harga_member', '200000', 0);
 
 -- --------------------------------------------------------
 
@@ -227,7 +252,8 @@ INSERT INTO `submenus` (`id`, `menu_id`, `name`, `icon`, `url`, `status`, `is_ac
 (12, 4, 'List Testimonial', '', 'admin/testimonial', 1, 'public'),
 (13, 5, 'Belum Di ACC', '', 'admin/pembayaran?type=belum_acc', 1, 'public'),
 (14, 5, 'Diterima', '', 'admin/pembayaran?type=diterima', 1, 'public'),
-(16, 2, 'Users Setting', '', 'admin/user/list', 1, 'public');
+(16, 2, 'Users Setting', '', 'admin/user/list', 1, 'public'),
+(17, 6, 'Masukan', '', 'admin/masukan', 1, 'public');
 
 -- --------------------------------------------------------
 
@@ -277,8 +303,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `codeReferal`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
 (1, 'Super Admin', '', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'y9dZOVJ_CyKQKk/HdkHe_02zRysOz_SGTLv_7/chM1FCBwCjHb6ZyDw7AQLDJxhm9Gt2faBHp7jrjJVuZa4b7g==', 1),
-(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'ctAZOSy08VcQOuvsniOLoOACGnUtDJTwmroISPyja3oJCA8dBvhHffNWcbd03JEakKnFcWf8rgTArVQrMczdRg==', 1);
+(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'VSqBB4te7QizZObd6ZTMCM1TYiJUV9hF1BMlf4pRi9A7S_jWKCwwfTCyiKdaQzfBwm9sKFbJDpyOrJJ4VMfMVA==', 1),
+(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'uD5N45zUSwWsu6W_33OETTtih9/td2y0/xB4z9YEX3/hR_tYkia9mlEk2wHoC0iyuACGKeQIghi/EgxTzgCVPg==', 0);
 
 -- --------------------------------------------------------
 
@@ -303,7 +329,8 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `kategori_id`, `no_urut`, `title`, `description`, `file`, `created_at`, `updated_at`, `status`) VALUES
-(3, 5, 3, 'Blade dengan tehnik yang bagus', 'dsfdfdfdfdffdf', '2_Install_Laravel_7_pastinya.mp4', '2020-11-02 23:06:02', '2020-11-02 23:06:02', 1);
+(3, 5, 3, 'Blade dengan tehnik yang bagus', 'dsfdfdfdfdffdf', '5_Blade_luar_biasa_ya.mp4', '2020-11-02 23:06:02', '2020-11-02 23:06:02', 1),
+(4, 5, 1, 'Instal Laravel Tentunya', 'Hal yang pertama di lakukan tentunya ialah edit video dong ..!!', '2_Install_Laravel_7_pastinya1.mp4', '2020-11-12 19:33:58', '2020-11-12 19:33:58', 1);
 
 --
 -- Indexes for dumped tables
@@ -337,6 +364,12 @@ ALTER TABLE `access_submenu_role`
 -- Indexes for table `kategories`
 --
 ALTER TABLE `kategories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `masukan`
+--
+ALTER TABLE `masukan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -404,7 +437,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `access_menu_role`
 --
 ALTER TABLE `access_menu_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `access_role_user`
@@ -425,16 +458,22 @@ ALTER TABLE `kategories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `masukan`
+--
+ALTER TABLE `masukan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rules`
@@ -446,13 +485,13 @@ ALTER TABLE `rules`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -470,7 +509,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
