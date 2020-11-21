@@ -3,6 +3,7 @@
 
 <head>
   <?php $this->load->view($thema_load . "components/head.php"); ?>
+
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <div class="pl-5">
           <div class="card">
             <!--Card image-->
-            <video class="img-fluid video-here" controls autoplay id="videoPlay" data-current="video<?= $kategories[0]->videos()[0]->id; ?>">
+            <video controlsList="nodownload" class="img-fluid video-here" controls autoplay id="videoPlay" data-current="video<?= $kategories[0]->videos()[0]->id; ?>">
               <source src="<?= base_url("assets/video/{$kategories[0]->videos()[0]->file}"); ?>" type="video/mp4">
             </video>
           </div>
