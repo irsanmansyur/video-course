@@ -57,6 +57,19 @@
               </h4>
             </div>
           </div>
+          <div class="table-responsive">
+            <table id="basic-datatables" class="table table-hover display table table-striped table-hover">
+              <tbody>
+                <?php foreach ($banks as $bank) : ?>
+                  <tr>
+                    <td scope="col" style="vertical-align: middle;"><?= $bank->rek; ?></td>
+                    <td scope="col" style="vertical-align: middle;"><?= $bank->name; ?></td>
+                    <td><img src="<?= $bank->takeImage(); ?>" alt="" style="width:100px;height:100px"> </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
           <hr>
           <?php if ($pembayaran) : ?>
             <center>Status Pesanan

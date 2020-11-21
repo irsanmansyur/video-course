@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 20, 2020 at 03:42 AM
+-- Generation Time: Nov 21, 2020 at 05:45 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -79,6 +79,26 @@ CREATE TABLE `access_submenu_role` (
   `role_id` int(11) NOT NULL,
   `submenu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banks`
+--
+
+CREATE TABLE `banks` (
+  `id` int(11) NOT NULL,
+  `rek` varchar(66) NOT NULL,
+  `name` varchar(66) NOT NULL,
+  `image` varchar(66) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `banks`
+--
+
+INSERT INTO `banks` (`id`, `rek`, `name`, `image`) VALUES
+(5, 'ghfhfg', 'fghfgh', 'LOGO_KABUPATEN_BANTAENG.png');
 
 -- --------------------------------------------------------
 
@@ -170,13 +190,6 @@ CREATE TABLE `pembayaran` (
   `updated` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pembayaran`
---
-
-INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`, `alasan`, `updated`) VALUES
-(4, 18, '2020-11-25 00:00:00', '2020-11-18 00:00:00', 200000, 'LOGO_KABUPATEN_BANTAENG.png', 0, '', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -232,7 +245,7 @@ CREATE TABLE `submenus` (
   `menu_id` int(11) NOT NULL,
   `name` varchar(22) NOT NULL,
   `icon` varchar(122) NOT NULL,
-  `url` varchar(122) NOT NULL,
+  `url` varchar(77) NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1',
   `is_access` enum('public','private') NOT NULL DEFAULT 'public'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -253,7 +266,8 @@ INSERT INTO `submenus` (`id`, `menu_id`, `name`, `icon`, `url`, `status`, `is_ac
 (13, 5, 'Belum Di ACC', '', 'admin/pembayaran?type=belum_acc', 1, 'public'),
 (14, 5, 'Diterima', '', 'admin/pembayaran?type=diterima', 1, 'public'),
 (16, 2, 'Users Setting', '', 'admin/user/list', 1, 'public'),
-(17, 6, 'Masukan', '', 'admin/masukan', 1, 'public');
+(17, 6, 'Masukan', '', 'admin/masukan', 1, 'public'),
+(18, 2, 'Bank', '', 'admin/bank', 1, 'public');
 
 -- --------------------------------------------------------
 
@@ -303,8 +317,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `codeReferal`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
 (1, 'Super Admin', '', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'VSqBB4te7QizZObd6ZTMCM1TYiJUV9hF1BMlf4pRi9A7S_jWKCwwfTCyiKdaQzfBwm9sKFbJDpyOrJJ4VMfMVA==', 1),
-(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'uD5N45zUSwWsu6W_33OETTtih9/td2y0/xB4z9YEX3/hR_tYkia9mlEk2wHoC0iyuACGKeQIghi/EgxTzgCVPg==', 0);
+(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'NhWJUaC_QrGLge5wOuOsCItvmNzBZz48hAQST/fXJhXbmthFz6XakX8P8Rr96PbFGNxM8v05aKuPuXCkAAV8oA==', 1),
+(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'agrneDCsHK2UgdsEKZ9KupFzxbS51ijJh3CrUjXPVAtT1pqCnn3YUvHaH8a5JuyW12MFdG4a2KoLtGJkj_/vWQ==', 1);
 
 -- --------------------------------------------------------
 
@@ -359,6 +373,12 @@ ALTER TABLE `access_submenu_role`
   ADD PRIMARY KEY (`id`),
   ADD KEY `access_submenu_role_ibfk_1` (`role_id`),
   ADD KEY `submenu_id` (`submenu_id`);
+
+--
+-- Indexes for table `banks`
+--
+ALTER TABLE `banks`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `kategories`
@@ -452,6 +472,12 @@ ALTER TABLE `access_submenu_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `banks`
+--
+ALTER TABLE `banks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `kategories`
 --
 ALTER TABLE `kategories`
@@ -473,7 +499,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `rules`
@@ -491,7 +517,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `testimonial`

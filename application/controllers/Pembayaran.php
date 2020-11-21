@@ -22,7 +22,7 @@ class Pembayaran extends MY_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model(["Pembayaran_model"]);
+    $this->load->model(["Pembayaran_model", "bank_model"]);
   }
   public function index()
   {
@@ -31,11 +31,12 @@ class Pembayaran extends MY_Controller
       redirect("/login");
     }
     $pembayaran = $this->Pembayaran_model->first("user_id", user()->id);
+    $banks = $this->bank_model->all();
     $data = [
       "page_title" => "Invoice Pembayaran",
     ];
 
-    $this->template->load('public', 'pembayaran/index', array_merge($data, compact(["pembayaran"])));
+    $this->template->load('public', 'pembayaran/index', array_merge($data, compact(["pembayaran", "banks"])));
   }
   public function upload()
   {
