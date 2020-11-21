@@ -11,18 +11,21 @@
     <button id="submit-all" class="btn btn-primary">Upload Bukti Pembayaran</button>
   <?php endif; ?>
 </center>
-<?php if ($pembayaran) : ?>
-  <div class="dz-preview dz-preview-single w-100 mt-3">
-    <div class="dz-preview-cover text-center">
+<div class="dz-preview dz-preview-single w-100 mt-3">
+  <div class="dz-preview-cover text-center">
+    <?php if ($pembayaran) : ?>
       <img id="dz-preview" class="dz-preview-img" style="min-width: 50%;" src="<?= base_url("assets/img/pembayaran/" . $pembayaran->bukti_pembayaran); ?>" alt="..." data-dz-thumbnail>
-    </div>
+    <?php else :; ?>
+      <img id="dz-preview" class="dz-preview-img" src="" alt="..." data-dz-thumbnail>
+    <?php endif; ?>
   </div>
-<?php endif; ?>
+</div>
 
 
 
 <script>
-  var ImgFile = document.querySelector("#dz-preview").getAttribute('src');
+  var imgSrc = document.querySelector("#dz-preview");
+  var ImgFile = imgSrc ? imgSrc.getAttribute('src') : '';
   Dropzone.options.myDropzone = {
     maxFiles: 1,
     autoProcessQueue: false,
