@@ -17,17 +17,17 @@
       <div class="card w-100 mt-5">
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-12 col-md-7">
+            <!-- <div class="col-sm-12 col-md-7">
               <div class="img-profile">
                 <img src="<?= base_url("assets/img/profile/") . user()->profile; ?>" alt="" style="width: 100%;max-height:500px">
               </div>
-            </div>
+            </div> -->
             <div class="col-sm-12 col-md-5">
               <div class="title">Selamat Datang</div>
               <h1><?= user()->name; ?></h1>
               <div>Status</div>
               <div>
-                <?php if ($status == 1) : ?>
+                <?php if ($status == 9) : ?>
                   <span class="badge badge-danger">Anda Belum melakukan Pembayaran</span>
                 <?php elseif ($status == 0) :; ?>
                   <span class="badge badge-warning">Pembayaran anda belum di verifikasi</span>

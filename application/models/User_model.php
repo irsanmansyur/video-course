@@ -50,4 +50,8 @@ class User_model extends CI_Model
     }
     return $image[array_rand($image)];
   }
+  public function referal()
+  {
+    return $this->first('username', $this->codeReferal);
+  }
 }

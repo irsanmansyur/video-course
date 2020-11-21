@@ -3,7 +3,17 @@
 
 <head>
   <?php $this->load->view($thema_load . "partials/_head.php"); ?>
+  <style>
+    .img-cursor-in {
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
 
+    .img-cursor-out {
+      cursor: zoom-out;
+      max-width: 100%;
+    }
+  </style>
 </head>
 
 <body>
@@ -51,8 +61,8 @@
                       <div class="col-6">
                         <div class="text-center">
                           <h2>Bukti Pembayaran</h2>
-                          <div class="avatar avatar-xl">
-                            <img src="<?= $pembayaran->getTakeBuktiPembayaran(); ?>" alt="..." class="avatar-img rounded-circle">
+                          <div class="avatar avatar-xl" data-toggle="modal" data-target=".bd-example-modal-lg">
+                            <img src="<?= $pembayaran->getTakeBuktiPembayaran(); ?>" alt="..." class="avatar-img img-cursor-in rounded-circle">
                           </div>
                         </div>
                       </div>
@@ -149,6 +159,19 @@
             </div>
           </form>
 
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="container">
+            <center>
+              <img src="<?= $pembayaran->getTakeBuktiPembayaran(); ?>" alt="" class="img-cursor-out" data-dismiss="modal" aria-label="Close">
+            </center>
+
+          </div>
         </div>
       </div>
     </div>

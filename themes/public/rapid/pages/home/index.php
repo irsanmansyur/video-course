@@ -16,7 +16,9 @@
         <div class="col-md-6 intro-info order-md-first order-last">
           <h2>Rapid Solutions<br>for Your <span>Business!</span></h2>
           <div>
-            <a href="#about" class="btn-get-started scrollto">Registrasi</a>
+            <?php if (!is_login()) : ?>
+              <a href="#about" class="btn-get-started scrollto">Registrasi</a>
+            <?php endif; ?>
           </div>
         </div>
 

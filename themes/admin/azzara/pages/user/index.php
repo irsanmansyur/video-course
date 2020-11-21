@@ -50,6 +50,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">nama User</th>
+                      <th scope="col">Referal</th>
                       <th scope="col">Gambar</th>
                       <th scope="col">Set Access Role</th>
                       <th scope="col">Action</th>
@@ -58,10 +59,17 @@
                   <tbody>
                     <?php
                     $no = 1;
-                    foreach ($users->result_object() as $user) : ?>
+                    foreach ($users as $user) : ?>
                       <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $user->name; ?></td>
+                        <td>
+                          <?php if ($user->referal()) : ?>
+                            <?= $user->referal()->name; ?> || <?= $user->referal()->username; ?>
+                          <?php else :; ?>
+                            Kosong
+                          <?php endif; ?>
+                        </td>
                         <td><img src="<?= base_url('assets/img/profile/' . $user->profile); ?>" alt="" style="width:100px;height:100px"> </td>
                         <td>
                           <a href="<?= base_url('super-admin/access/type/' . $user->id . "/user"); ?>" class="btn btn-secondary btn-sm rounded">Change Accesss</a>

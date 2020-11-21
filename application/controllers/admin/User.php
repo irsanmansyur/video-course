@@ -59,13 +59,11 @@ class User extends Admin_Controller
   public function list()
   {
     in_role([1, 2]);
-    $this->db->select("u.*,u.id,u.name,rules.name as name_rules");
-    $this->db->from("users u")
-      ->where_not_in("u.id", [1, 2]);
-
-    $this->db->join('access_role_user', 'access_role_user.user_id = u.id')
-      ->join('rules', 'rules.id=access_role_user.role_id')->group_by("u.id");
-    $users = $this->db->get();
+    $this->db->select("users.*,rules.name as name_rules")
+      ->where_not_in("users.id", [1, 2]);
+    $this->db->join('access_role_user', 'access_role_user.user_id = users.id')
+      ->join('rules', 'rules.id=access_role_user.role_id')->group_by("users.id");
+    $users = $this->user_model->all();
 
     $data = [
       'page_title' => "List Users",

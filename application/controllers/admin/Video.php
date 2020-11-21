@@ -158,7 +158,7 @@ class Video extends Admin_Controller
   {
     if ($_FILES['video']['name']) {
       $config['allowed_types'] = 'wmv|mp4|avi|mov|mkv';
-      $config['max_size']      = '120048';
+      $config['max_size']      = '1338800';
       $config['upload_path'] = './assets/video/';
       $this->load->library('upload', $config);
       if ($this->upload->do_upload('video')) {

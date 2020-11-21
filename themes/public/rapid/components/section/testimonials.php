@@ -17,7 +17,7 @@
               <div class="testimonial-item">
                 <img src="<?= base_url("assets/img/" . ($testimonial->foto ? 'testimonial/' . $testimonial->foto : 'profile/' . $testimonial->user()->profile)); ?>" class="testimonial-img" alt="">
                 <h3><?= $testimonial->user()->name; ?></h3>
-                <h4>Ceo &amp; Founder</h4>
+                <!-- <h4>Ceo &amp; Founder</h4> -->
                 <p>
                   <?= $testimonial->keterangan; ?>
                 </p>
