@@ -34,35 +34,31 @@
                     </tr>
 
                     <tr>
-                      <td>Operoting Cash Flow</td>
+                      <td>Operoting Cash Flow (Current)</td>
                       <td>:</td>
                       <td><input type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                      <td>Total Debit ( Short Term Debt + Lazy in Dbt)</td>
+                      <td>Total Debt (Short Term Debt + Long Tern Debt)</td>
                       <td>:</td>
                       <td><input type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                      <td>Cahs Out Short Term Invertsnd</td>
+                      <td>Cash and Short Term Investments</td>
                       <td>:</td>
                       <td><input type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                      <td>Cahs Flow Growth Rate</td>
+                      <td>Cash Flow Growth Rate (Year 1 - Year 4</td>
                       <td>:</td>
                       <td><input type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                      <td>Cahs Flow Growth Rate</td>
+                      <td>Cash Flow Growth Rate (Year 6 - Year 8</td>
                       <td>:</td>
                       <td><input type="text" class="form-control"></td>
                     </tr>
-                    <tr>
-                      <td>Cahs Flow Growth Rate</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
+
                     <tr>
                       <td>No. Of Shaes out standing</td>
                       <td>:</td>
