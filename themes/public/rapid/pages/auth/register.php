@@ -118,7 +118,7 @@
           </button>
         </div>
         <div class="modal-body h-100">
-          <iframe src="https://drive.google.com/file/d/1uSTLkKHvYvXoANBMEJNe1zke84KRcz28/preview" style="width:100%;height:100%" frameborder="0"></iframe>
+          <iframe src="https://drive.google.com/file/d/19nws66axlYDZSOjegy0oXBS-S_akyB52/preview" style="width:100%;height:100%" frameborder="0"></iframe>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary noaccept" data-dismiss="modal">Close</button>
