@@ -73,7 +73,14 @@
           <hr>
           <?php if ($pembayaran) : ?>
             <center>Status Pesanan
-              <p class="py-4"><button class="btn btn-primary">Menunggu Verifikasi</button></p>
+              <?php if ($pembayaran->status == 2) : ?>
+                <p class="pt-4"><button class="btn btn-danger">Pembayaran di Tolak</button></p>
+
+                <p class="py-1">Dengan Alasan : <b><?= $pembayaran->alasan; ?></b></p>
+                <p class="text-danger">Mohon Ganti Bukti Pembayaran</p>
+              <?php else :; ?>
+                <p class="py-4"><button class="btn btn-primary">Menunggu Verifikasi</button></p>
+              <?php endif; ?>
             </center>
             <hr>
           <?php endif; ?>

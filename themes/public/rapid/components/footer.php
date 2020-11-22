@@ -70,7 +70,7 @@
                 <div class="validation"></div>
               </div>
 
-              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="sendmessage" style="background-color: green;">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
               <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
             </form>
@@ -96,7 +96,7 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
         -->
-      Designed by <a>Sahampreneur</a>
+      <!-- Designed by <a>Sahampreneur</a> -->
     </div>
   </div>
 </footer><!-- #footer -->

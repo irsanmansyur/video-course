@@ -60,7 +60,7 @@ class Register extends MY_Controller
     $password = password_hash($this->input->post('passwordsignin'), PASSWORD_DEFAULT);
     $status = 1;
 
-    $data = compact(["email", 'username', 'password', 'name', 'status', 'jkl']);
+    $data = compact(["email", 'username', 'password', 'name', 'status']);
 
     $jkl = $this->input->post('jkl');
     if ($jkl) $data["jkl"] = $jkl;

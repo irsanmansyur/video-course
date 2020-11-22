@@ -32,10 +32,11 @@
                 <?php elseif ($status == 0) :; ?>
                   <span class="badge badge-warning">Pembayaran anda belum di verifikasi</span>
                 <?php elseif ($status == 1) :; ?>
-                  <span class="badge badge-primary">Members Premium</span>
+                  <span class="badge badge-primary">Member Premium</span>
                 <?php else :; ?>
                   <span class="badge badge-warning">Pembayaran anda di tolak</span> <br>
                   <span><?= $pembayaran->alasan; ?></span>
+                  <a href="<?= base_url("/pembayaran"); ?>" class="badge badge-primary">Details Pembayaran</a>
                 <?php endif; ?>
               </div>
             </div>

@@ -46,7 +46,7 @@
           <i class="zmdi zmdi-email"></i>
           <?= form_error("email", "<div class='text-danger'>", "</div>"); ?>
         </div>
-        <div class="form-wrapper" style="margin-bottom: 25px;">
+        <!-- <div class="form-wrapper" style="margin-bottom: 25px;">
           <select name="jkl" id="" class="form-control" style="margin-bottom: 5px;">
             <option value="" disabled selected>Gender</option>
             <option value="Laki - Laki" <?= set_value('jkl') == "Laki - Laki" ? "selected" : ''; ?>>Laki - Laki</option>
@@ -55,8 +55,7 @@
           </select>
           <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
           <?= form_error("jkl", "<div class='text-danger'>", "</div>"); ?>
-
-        </div>
+        </div> -->
         <div class="form-wrapper" style="margin-bottom: 25px;">
           <input type="password" style="margin-bottom: 5px;" name="passwordsignin" placeholder="Password" class="form-control">
           <i class="zmdi zmdi-lock"></i>
@@ -74,14 +73,16 @@
           <i class="zmdi zmdi-lock"></i>
           <?= form_error("codeReferal", "<div class='text-danger'>", "</div>"); ?>
         </div>
-        <div class="form-check " data-toggle="modal" data-target="#exampleModalLong">
-          <input type="checkbox" hidden class="form-check-input" name="accept">
+        <div class="form-check ">
+          <input type="checkbox" class="form-check-input" hidden name="accept">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" id="cekAccept" style="color: black;">Term and Policy</label>
+          <label class="form-check-label" id="cekAccept" style="color: black;">Saya setuju dengan <a href="#" data-toggle="modal" data-target="#exampleModalLong">Term and Conditions</a> dan <a href="#" data-toggle="modal" data-target="#exampleModalLongPrivacy">Privacy Policy</a> Sahampreneur.</label>
         </div>
         <button type="submit" id="registerNow" disabled>Register
           <i class="zmdi zmdi-arrow-right"></i>
         </button>
+        <br>
+        <span style="margin-top:20px">Sudah Punya akun .? <a href="<?= base_url("auth/login"); ?>">Login</a></span>
       </form>
     </div>
   </div>
@@ -100,36 +101,45 @@
           <iframe src="https://drive.google.com/file/d/1uSTLkKHvYvXoANBMEJNe1zke84KRcz28/preview" style="width:100%;height:100%" frameborder="0"></iframe>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary noaccept" data-dismiss="modal">No</button>
-          <button type="button" id="acceptMe" class="btn btn-primary">Accept</button>
+          <button type="button" class="btn btn-secondary noaccept" data-dismiss="modal">Close</button>
+          <!-- <button type="button" id="acceptMe" class="btn btn-primary">Accept</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLongPrivacy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl h-100" role="document">
+      <div class="modal-content  h-75">
+        <div class="modal-header" style="justify-content: space-between;">
+          <h5 class="modal-title" id="exampleModalLongTitle">Privacy Policy</h5>
+          <button type="button" style="width:50px;margin:0;background:transparent" name="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="font-size:40px;color:black;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body h-100">
+          <iframe src="https://drive.google.com/file/d/1uSTLkKHvYvXoANBMEJNe1zke84KRcz28/preview" style="width:100%;height:100%" frameborder="0"></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary noaccept" data-dismiss="modal">Close</button>
+          <!-- <button type="button" id="acceptMe" class="btn btn-primary">Accept</button> -->
         </div>
       </div>
     </div>
   </div>
   <script>
-    let cekMe = document.querySelectorAll(["#cekAccept", "#exampleCheck1"]);
-    [...cekMe].forEach(cek => {
-      cek.addEventListener('click', e => {
-        if (document.getElementById("exampleCheck1").checked == true) document.getElementById("exampleCheck1").checked = false;
-        e.preventDefault();
-      })
-      let meAcc = document.getElementById("acceptMe");
-      meAcc.addEventListener("click", function() {
+    let cekMe = document.querySelector("#exampleCheck1");
+    cekMe.addEventListener('click', e => {
+      if (document.getElementById("exampleCheck1").checked == true) {
         document.querySelector("[name=accept]").checked = true;
-        document.querySelector("[name=close_modal]").click();
-        document.getElementById("exampleCheck1").checked = true;
         document.getElementById("registerNow").disabled = false;
-
-      })
-      document.querySelector(".noaccept").addEventListener("click", function() {
+      } else {
         document.querySelector("[name=accept]").checked = false;
-        document.getElementById("exampleCheck1").checked = false;
         document.getElementById("registerNow").disabled = true;
-
-      })
+      }
     })
     document.getElementById("formMe").addEventListener("submit", e => {
-      if (document.querySelector("[name=accept]").checked == false || document.getElementById("exampleCheck1").checked == false)
+      if (document.querySelector("[name=accept]").checked == false)
         e.preventDefault();
     })
   </script>

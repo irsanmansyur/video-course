@@ -31,6 +31,7 @@ class Pembayaran extends MY_Controller
       redirect("/login");
     }
     $pembayaran = $this->Pembayaran_model->first("user_id", user()->id);
+
     $banks = $this->bank_model->all();
     $data = [
       "page_title" => "Invoice Pembayaran",
