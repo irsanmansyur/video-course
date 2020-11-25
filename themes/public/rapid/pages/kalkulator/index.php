@@ -12,7 +12,7 @@
     Intro Section
   ============================-->
 
-  <main id="main" class='vh-100'>
+  <main id="main" class='vh-100 pt-5'>
     <div class="container mt-5 pt-5">
       <div class="row">
         <div class="col-md-7">

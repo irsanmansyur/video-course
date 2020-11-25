@@ -45,7 +45,11 @@
       });
       this.on("success", function(file, responseText) {
         document.querySelector("#dz-preview").setAttribute('src', ImgFile);
-        swal("Bukti Transfer Di kirim!", "Silahkan cek Status pembayaran anda dalam max 2X 24 jam!", "success");
+        swal("Bukti Transfer Di kirim!", "Silahkan cek Status pembayaran anda dalam max 2X 24 jam!", "success")
+          .then((value) => {
+            location.reload();
+          });;
+
       });
 
     }

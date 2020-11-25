@@ -84,7 +84,6 @@
                           <div class="col-6">Jumlah Pembayaran</div>
                           <div class="col-6">: <?= rupiah($pembayaran->jumlah); ?></div>
                           <?php if ($pembayaran->status == 2) : ?>
-
                             <div class="col-6  py-2">Alasan Penolakan</div>
                             <div class="col-6  py-2">: <?= $pembayaran->alasan; ?></div>
                           <?php endif; ?>
@@ -92,17 +91,20 @@
                       </div>
                     </div>
                     <?php if ($pembayaran->status !== "1") : ?>
-                      <form action="" method="post" class="text-center py-5">
-                        <input hidden name="id" value="<?= $pembayaran->id; ?>" />
-                        <button class="btn btn-primary" type="submit">Terima Pembayaran</button>
-                      </form>
                       <?php if ($pembayaran->status != "2") : ?>
-                        <p class="text-center pb-5">
+                        <p class="text-center py-3">
                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#tolak">
                             Tolak Pembayaran!
                           </button>
                         </p>
+                        <form action="" method="post" class="text-center py-5">
+                          <input hidden name="id" value="<?= $pembayaran->id; ?>" />
+                          <button class="btn btn-primary" type="submit">Terima Pembayaran</button>
+                        </form>
+                      <?php elseif ($pembayaran->status != "2") :; ?>
                       <?php endif; ?>
+
+
                     <?php else : ?>
                       <button class="btn btn-success">
                         <span class="btn-label">

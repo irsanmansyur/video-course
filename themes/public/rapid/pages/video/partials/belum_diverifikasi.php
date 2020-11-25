@@ -15,6 +15,7 @@
     <div style="min-height:400px" class="d-flex justify-content-center align-items-center">
       <div>
         <div class="alert alert-danger mt-5"><?= $status; ?></div>
+        <a href="<?= base_url("pembayaran"); ?>" class="btn btn-primary">Cek Status Pembayaran</a>
       </div>
     </div>
   </main>

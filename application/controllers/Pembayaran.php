@@ -28,7 +28,7 @@ class Pembayaran extends MY_Controller
   {
     if (!is_login()) {
       $this->session->set_flashdata("danger", "Silahkan Login Terlebih dahulu!");
-      redirect("/login");
+      // redirect("/login");
     }
     $pembayaran = $this->Pembayaran_model->first("user_id", user()->id);
 
@@ -43,7 +43,8 @@ class Pembayaran extends MY_Controller
   {
 
     $settings = $this->setting->getSettings();
-    $cekPmbyrn = $this->Pembayaran_model->first("user_id", user()->id);
+    // $cekPmbyrn = $this->Pembayaran_model->first("user_id", user()->id);
+    $cekPmbyrn = $this->Pembayaran_model->first("user_id", 18);
     if ($cekPmbyrn) {
       $pembayaran = $cekPmbyrn;
     } else {
@@ -69,12 +70,14 @@ class Pembayaran extends MY_Controller
     $filename = $this->upload->data('file_name');
 
 
-    $pembayaran->user_id = user()->id;
+    // $pembayaran->user_id = user()->id;
+    $pembayaran->user_id = 18;
     $pembayaran->bukti_pembayaran = $filename;
-    $pembayaran->status = 0;
+    $pembayaran->status = '00';
     $pembayaran->updated = 1;
     if ($cekPmbyrn) {
       $pembayaran->update();
+      die(var_dump($this->db->last_query()));
     } else {
       $pembayaran->save();
     }

@@ -35,7 +35,11 @@ class Video extends MY_Controller
       $this->session->set_flashdata("warning", "Untuk Bisa menikmati layanan kami, anda bisa melakukan pembayaran terlebih dahulu");
       return redirect("/pembayaran");
     } else if ($pembayaran->status != 1) {
-      $data['status'] = "Mohon bersabar , pembayaran anda sedang tahap proses... kami akan segera menghubungi anda jika pembayaran anda telah di verifikasi";
+      if ($pembayaran->status == 0) {
+        $data['status'] = "Mohon bersabar , pembayaran anda sedang tahap proses... kami akan segera menghubungi anda jika pembayaran anda telah di verifikasi";
+      } else   if ($pembayaran->status == 2) {
+        $data['status'] = "Pembayaran Anda di Tolak ..!, Dengan Alasan : \" $pembayaran->alasan \"";
+      }
       $this->session->set_flashdata("warning", $data['status']);
       return     $this->template->load('public', 'video/partials/belum_diverifikasi', array_merge($data, compact([])));
       return redirect("/home");
