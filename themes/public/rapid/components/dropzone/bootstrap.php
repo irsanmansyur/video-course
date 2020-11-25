@@ -14,9 +14,9 @@
 <div class="dz-preview dz-preview-single w-100 mt-3">
   <div class="dz-preview-cover text-center">
     <?php if ($pembayaran) : ?>
-      <img id="dz-preview" class="dz-preview-img" style="min-width: 50%;" src="<?= base_url("assets/img/pembayaran/" . $pembayaran->bukti_pembayaran); ?>" alt="..." data-dz-thumbnail>
+      <img id="dz-preview" class="dz-preview-img" style="min-width: 50%;max-width:90%" src="<?= base_url("assets/img/pembayaran/" . $pembayaran->bukti_pembayaran); ?>" alt="..." data-dz-thumbnail>
     <?php else :; ?>
-      <img id="dz-preview" class="dz-preview-img" src="" alt="..." data-dz-thumbnail>
+      <img id="dz-preview" class="dz-preview-img" src="" alt="..." data-dz-thumbnail style="max-width:90%">
     <?php endif; ?>
   </div>
 </div>
