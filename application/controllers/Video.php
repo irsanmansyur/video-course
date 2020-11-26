@@ -42,7 +42,6 @@ class Video extends MY_Controller
       }
       $this->session->set_flashdata("warning", $data['status']);
       return     $this->template->load('public', 'video/partials/belum_diverifikasi', array_merge($data, compact([])));
-      return redirect("/home");
     }
 
 

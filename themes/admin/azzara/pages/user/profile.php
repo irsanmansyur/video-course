@@ -94,15 +94,17 @@
                     </div>
                     <div class="row mt-3">
                       <div class="col-12">
-                        <div class="form-group form-group-default">
-                          <h3>Ganti Gambar (Klik gambar di bawah)</h3>
-                          <div class="card-avatar">
-                            <input type="file" name="gambar" id="imagechange" class="d-none" />
-                            <a href="#pablo" id="changePhoto">
-                              <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= base_url('assets/img/profile/' . $user->profile) ?>">
-                            </a>
+                        <?php if (in_role("Admin")) : ?>
+                          <div class="form-group form-group-default">
+                            <h3>Ganti Gambar (Klik gambar di bawah)</h3>
+                            <div class="card-avatar">
+                              <input type="file" name="gambar" id="imagechange" class="d-none" />
+                              <a href="#pablo" id="changePhoto">
+                                <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= base_url('assets/img/profile/' . $user->profile) ?>">
+                              </a>
+                            </div>
                           </div>
-                        </div>
+                        <?php endif; ?>
                       </div>
                     </div>
 

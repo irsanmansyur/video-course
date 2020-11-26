@@ -50,10 +50,10 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-left">
             <h3 class="cta-title">Kalkulator Saham</h3>
-            <p class="cta-text"> Klik Disini untuk menghitung saham kamu, dapat diklik dan diarahkan ke halaman kalkulator setelah registrasi dan melakukan pembayaran, jika belum regis dan bayar tombolnya mengarahkan ke halaman registrasi.</p>
+            <p class="cta-text"> Ayo menghitung saham kamu! .</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Klik Disini</a>
+            <a class="cta-btn align-middle" href="<?= base_url("kalkulator"); ?>">Klik Disini</a>
           </div>
         </div>
 

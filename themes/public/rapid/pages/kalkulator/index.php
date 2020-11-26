@@ -12,79 +12,24 @@
     Intro Section
   ============================-->
 
-  <main id="main" class='vh-100 pt-5'>
+  <main id="main" class='min-vh-100 pt-5 my-5'>
     <div class="container mt-5 pt-5">
-      <div class="row">
-        <div class="col-md-7">
-          <div class="card ">
-            <div class="card-body">
-              <div class="table-responsive-xl">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>Name of Stock</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-
-                    <tr>
-                      <td>Stock Symbol</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-
-                    <tr>
-                      <td>Operoting Cash Flow (Current)</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                      <td>Total Debt (Short Term Debt + Long Tern Debt)</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                      <td>Cash and Short Term Investments</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                      <td>Cash Flow Growth Rate (Year 1 - Year 4</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                      <td>Cash Flow Growth Rate (Year 6 - Year 8</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-
-                    <tr>
-                      <td>No. Of Shaes out standing</td>
-                      <td>:</td>
-                      <td><input type="text" class="form-control"></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+      <nav class="mb-3">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link <?= $active == 'intrinsic_value' ? "active" : ''; ?>" id="nav-intrinsic_value-tab" data-toggle="tab" href="#nav-intrinsic_value" role="tab" aria-controls="nav-intrinsic_value" aria-selected="true">Intrinsic Value</a>
+          <a class="nav-item nav-link <?= $active == 'cagr' ? "active" : ''; ?>" id="nav-cagr-tab" data-toggle="tab" href="#nav-cagr" role="tab" aria-controls="nav-cagr" aria-selected="false">CAGR</a>
         </div>
-        <div class="col-md-5">
-          <div class="card ">
-            <div class="card-body">
-              <div class="table-responsive-xl">
-                <table class="table">
-                  ...
-                </table>
-              </div>
-            </div>
-          </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade <?= $active == "intrinsic_value" ? "show active" : ''; ?>" id="nav-intrinsic_value" role="tabpanel" aria-labelledby="nav-home-tab">
+          <?php $this->load->view($thema_load . "pages/kalkulator/partials/intrinsic-value.php"); ?>
         </div>
+        <div class="tab-pane fade <?= $active == "cagr" ? "show active" : ''; ?>" id="nav-cagr" role="tabpanel" aria-labelledby="nav-cagr-tab">
+          <?php $this->load->view($thema_load . "pages/kalkulator/partials/cagr.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
       </div>
     </div>
-
   </main>
 
   <?php $this->load->view($thema_load . "components/footer.php"); ?>
@@ -95,6 +40,14 @@
   <?php $this->load->view($thema_load . "components/js_library.php"); ?>
   <script src="<?= $thema_folder . "pages/video/partials/main.js"; ?>"></script>
 
+  <script>
+    let navItems = document.querySelectorAll(".nav-item");
+    [...navItems].forEach(navItem => {
+      if (window.location.href == navItem.getAttribute("href")) {
+
+      }
+    });
+  </script>
 </body>
 
 </html>
