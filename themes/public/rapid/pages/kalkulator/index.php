@@ -18,6 +18,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link <?= $active == 'intrinsic_value' ? "active" : ''; ?>" id="nav-intrinsic_value-tab" data-toggle="tab" href="#nav-intrinsic_value" role="tab" aria-controls="nav-intrinsic_value" aria-selected="true">Intrinsic Value</a>
           <a class="nav-item nav-link <?= $active == 'cagr' ? "active" : ''; ?>" id="nav-cagr-tab" data-toggle="tab" href="#nav-cagr" role="tab" aria-controls="nav-cagr" aria-selected="false">CAGR</a>
+          <a class="nav-item nav-link" id="nav-panduan-tab" data-toggle="tab" href="#nav-panduan" role="tab" aria-controls="nav-panduan" aria-selected="false">Panduan</a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -27,7 +28,11 @@
         <div class="tab-pane fade <?= $active == "cagr" ? "show active" : ''; ?>" id="nav-cagr" role="tabpanel" aria-labelledby="nav-cagr-tab">
           <?php $this->load->view($thema_load . "pages/kalkulator/partials/cagr.php"); ?>
         </div>
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        <div class="tab-pane fade" id="nav-panduan" role="tabpanel" aria-labelledby="nav-panduan-tab">
+          <div class="min-vh-100">
+            <iframe src="https://drive.google.com/file/d/113UFhID4LvxaPDnvSFIFQo59RlyCR6b3/preview" style="width:100%;min-height:70vh" frameborder="0"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </main>

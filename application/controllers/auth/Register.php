@@ -20,19 +20,65 @@ class Register extends MY_Controller
       return redirect(base_url('auth/login'));
     }
     $this->load->library("form_validation");
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+    $this->form_validation->set_rules(
+      'email',
+      'Email',
+      'trim|required|valid_email|is_unique[users.email]',
+      array(
+        'required'      => 'Anda harus mengisi %s.',
+        'is_unique'     => '%s ini sudah terdaftar.'
+      )
+    );
     if ($type == "user") {
-      $this->form_validation->set_rules('nama_depan', 'Nama Depan', 'trim|required|min_length[3]');
+      $this->form_validation->set_rules(
+        'nama_depan',
+        'Nama Depan',
+        'trim|required|min_length[3]',
+        array(
+          'required'      => 'Anda harus mengisi %s.',
+          'is_unique'     => '%s ini sudah terdaftar.'
+        )
+      );
       $this->form_validation->set_rules('nama_belakan', 'Nama Belakan', 'trim');
     } else {
-      $this->form_validation->set_rules('fullname', 'fullname', 'trim|required');
+      $this->form_validation->set_rules(
+        'fullname',
+        'fullname',
+        'trim|required',
+        array(
+          'required'      => 'Anda harus mengisi %s.'
+        )
+      );
     }
-    $this->form_validation->set_rules('username', 'username', 'trim|required|is_unique[users.username]');
-    $this->form_validation->set_rules('passwordsignin', 'Password', 'trim|required|min_length[3]');
-    $this->form_validation->set_rules('confirmpassword', 'confirmpassword', 'trim|required|matches[passwordsignin]');
+    $this->form_validation->set_rules(
+      'username',
+      'username',
+      'trim|required|is_unique[users.username]',
+      array(
+        'required'      => 'Anda harus mengisi %s.',
+        'is_unique'     => '%s ini sudah terdaftar.'
+      )
+    );
+    $this->form_validation->set_rules(
+      'passwordsignin',
+      'Password',
+      'trim|required|min_length[3]',
+      array(
+        'required'      => 'Anda harus mengisi %s.',
+        'min_length'     => 'Panjang karakter %s min 3 huruf .'
+      )
+    );
+    $this->form_validation->set_rules(
+      'confirmpassword',
+      'confirmpassword',
+      'trim|required|matches[passwordsignin]',
+      array(
+        'required'      => 'Anda harus mengisi %s.',
+        'matches'     => 'Password Konfirmasi harus sama dengan password .'
+      )
+    );
     if ($this->input->post("codeReferal")) {
       $referal = $this->db->get_where("users", ["username" => $this->input->post("codeReferal")])->row();
-
       if (!$referal) {
         $this->form_validation->set_rules('codeReferal', 'Kode Referal', 'trim|required|in_list[tablsdsde_fduserjajsajsb]', ["in_list" => "Kode Referal anda tidak diketahui"]);
       }

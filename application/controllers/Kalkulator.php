@@ -48,13 +48,34 @@ class Kalkulator extends MY_Controller
       'active' => "intrinsic_value",
     ];
     $this->load->library("form_validation");
-    $this->form_validation->set_rules("cash_flow", "Operoting Cash Flow (Current)", "numeric|required");
-    $this->form_validation->set_rules("total_debt", "Total Debt ", "numeric|required");
-    $this->form_validation->set_rules("cash_and_short", "Cash and Short Term Investments ", "numeric|required");
-    $this->form_validation->set_rules("shares_outstanding", "No. of Shares Outstanding", "numeric|required");
-    $this->form_validation->set_rules("percent_tp", "Cash Flow Growth Rate", "numeric|required");
-    $this->form_validation->set_rules("percent_te", "Cash Flow Growth Rate", "numeric|required");
-    $this->form_validation->set_rules("discount_rate", "Discount Rate", "numeric|required");
+    $this->form_validation->set_rules("cash_flow", "Operoting Cash Flow (Current)", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("total_debt", "Total Debt ", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("cash_and_short", "Cash and Short Term Investments ", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("shares_outstanding", "No. of Shares Outstanding", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("percent_tp", "Cash Flow Growth Rate", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("percent_te", "Cash Flow Growth Rate", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("discount_rate", "Discount Rate", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
     if ($this->form_validation->run()) {
       $this->_kalIntrinsicValue();
     }
@@ -122,9 +143,18 @@ class Kalkulator extends MY_Controller
       return  $this->template->load('public', 'kalkulator/partials/belum_diverifikasi', array_merge($data, compact([])), false);
     }
     $this->load->library("form_validation");
-    $this->form_validation->set_rules("start_date_value", "Start Date Value", "numeric|required");
-    $this->form_validation->set_rules("end_date_value", "End Date Value ", "numeric|required");
-    $this->form_validation->set_rules("year", "Year ", "numeric|required");
+    $this->form_validation->set_rules("start_date_value", "Start Date Value", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("end_date_value", "End Date Value ", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
+    $this->form_validation->set_rules("year", "Year ", "numeric|required", [
+      'required'      => 'Anda harus mengisi %s.',
+      "numeric" => "Mohon input hanya angka"
+    ]);
     $data = [
       "page_title" => "Selamat Datang",
       'active' => "cagr"
