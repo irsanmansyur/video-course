@@ -88,12 +88,13 @@
 
 
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-3 mb-2">
                       <div class="col-md-6">
                         <div class="form-group form-group-default">
                           <label>Email</label>
-                          <input type="email" readonly class="form-control" name="email" placeholder="Name email" value="<?= $userMe->email  ??  set_value('email'); ?>">
+                          <input type="email" class="form-control" name="email" placeholder="Email" value="<?= set_value('email', false) ? set_value('email') : $userMe->email; ?>">
                         </div>
+                        <?= form_error("email", "<div class='text-danger pl-2'>", "</div>"); ?>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group form-group-default">

@@ -82,7 +82,7 @@
             </p>
           </div>
         </li>
-        <li>
+        <!-- <li>
           <a data-toggle="collapse" href="#faq6ss" class="collapsed">Apa yang didapatkan dari program Sahampreneur?
 
             <i class="ion-android-remove"></i></a>
@@ -94,7 +94,7 @@
               - Posisi / Titik, Langkah dan Strategy Jual Beli Saham saya sendiri <br>
             </p>
           </div>
-        </li>
+        </li> -->
 
       </ul>
 

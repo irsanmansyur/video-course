@@ -1,3 +1,4 @@
+
 function ready(callbackFunc) {
   if (document.readyState !== "loading") {
     callbackFunc();

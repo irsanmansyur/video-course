@@ -23,7 +23,7 @@
           <li><a href="<?= base_url(); ?>#team">Tim</a></li>
           <li><a href="#footer">Hubungi Kami</a></li>
           <?php if (is_login()) : ?>
-            <li> <a href="<?= base_url("profile"); ?>"> <?= user()->name; ?></a></li>
+            <li> <a href="<?= base_url("profile"); ?>"> <?= split_name(user()->name)[0]; ?></a></li>
             <li>
               <form action="auth/logout" method="post"><button type="submit" class="btn btn-danger p-2">Logout</button></form>
             </li>
@@ -42,7 +42,7 @@
           <li><a href="#team">Tim</a></li>
           <li><a href="#footer">Hubungi Kami</a></li>
           <?php if (is_login()) : ?>
-            <li> <a href="<?= base_url("profile"); ?>"> <?= user()->name; ?></a></li>
+            <li> <a href="<?= base_url("profile"); ?>"> <?= split_name(user()->name)[0]; ?></a></li>
             <li>
               <form action="auth/logout" method="post"><button type="submit" class="btn btn-danger p-2">Logout</button></form>
             </li>

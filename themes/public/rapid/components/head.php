@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Sahampreneur | <?= $page_title; ?></title>
+<title><?= $settings->name_app; ?></title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="<?= @$page_keyword; ?>" name="keywords">
 <meta content="<?= @$page_description; ?>" name="description">

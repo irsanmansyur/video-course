@@ -29,14 +29,23 @@ class Register extends MY_Controller
         'is_unique'     => '%s ini sudah terdaftar.'
       )
     );
+    $this->form_validation->set_rules(
+      'accept',
+      'Syarat dan Ketentuan',
+      'trim|required',
+      array(
+        'required'  => 'Anda wajib mencentang  %s kami.',
+      )
+    );
     if ($type == "user") {
       $this->form_validation->set_rules(
         'nama_depan',
         'Nama Depan',
-        'trim|required|min_length[3]',
+        'trim|required|min_length[3]|max_length[20]',
         array(
           'required'      => 'Anda harus mengisi %s.',
-          'is_unique'     => '%s ini sudah terdaftar.'
+          'min_length'     => '%s Tidak boleh kurang dari 3 karakter.',
+          'max_length'     => '%s Tidak boleh lebih dari 20 karakter.',
         )
       );
       $this->form_validation->set_rules('nama_belakan', 'Nama Belakan', 'trim');
@@ -53,10 +62,11 @@ class Register extends MY_Controller
     $this->form_validation->set_rules(
       'username',
       'Username',
-      'trim|required|is_unique[users.username]',
+      'trim|required|is_unique[users.username]|max_length[20]',
       array(
         'required'      => 'Anda harus mengisi %s.',
-        'is_unique'     => '%s ini sudah terdaftar.'
+        'is_unique'     => '%s ini sudah terdaftar.',
+        'max_length'     => '%s Tidak boleh lebih dari 20 karakter.',
       )
     );
     $this->form_validation->set_rules(

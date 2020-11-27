@@ -5,7 +5,7 @@ Why Us Section
   <div class="container-fluid">
 
     <header class="section-header">
-      <h3>Kenapa memilih kami?</h3>
+      <h3>Apa yang didapatkan dari program SahamPreneur?</h3>
       <p></p>
     </header>
 

@@ -20,8 +20,9 @@
   <div class="wrapper" style="background-image: url('<?= $thema_folder; ?>assets/auth/images/bg-registration-form-1.jpg');">
     <div class="inner" style="min-height: 
     80vh;position:relative">
-      <div class="image-holder">
-        <img src="<?= base_url("assets\img\logo\sahampreneur.png") ?>" alt="" style="min-height:100%">
+      <div class="image-holder d-flex align-items-center" style="min-height: 
+    80vh">
+        <img src="<?= base_url("assets\img\logo\sahampreneur.png") ?>">
       </div>
 
       <form method="post" id="formMe">
@@ -69,18 +70,18 @@
           <i class="zmdi zmdi-lock"></i>
           <?= form_error("confirmpassword", "<div class='text-danger'>", "</div>"); ?>
         </div>
-        <small class="text-dark">Apakah kamu sudah punya kode refereal..? Jika ada masukkan disini</small>
+        <small class="text-dark">Apakah kamu sudah punya kode referal? Jika ada isi disini</small>
         <div class="form-wrapper" style="margin-bottom: 25px;">
           <input style="margin-bottom: 5px;" name="codeReferal" value="<?= set_value('codeReferal') ?>" placeholder="Kode Referal" class="form-control">
           <i class="zmdi zmdi-lock"></i>
           <?= form_error("codeReferal", "<div class='text-danger'>", "</div>"); ?>
         </div>
         <div class="form-check ">
-          <input type="checkbox" class="form-check-input" hidden name="accept">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="accept">
           <label class="form-check-label" id="cekAccept" style="color: black;">Saya setuju dengan <a href="#" data-toggle="modal" data-target="#exampleModalLong">Term and Conditions</a> dan <a href="#" data-toggle="modal" data-target="#exampleModalLongPrivacy">Privacy Policy</a> Sahampreneur.</label>
+          <?= form_error("accept", "<div class='text-danger'>", "</div>"); ?>
         </div>
-        <button type="submit" id="registerNow" disabled>Daftar
+        <button type="submit" id="registerNow">Daftar
           <i class="zmdi zmdi-arrow-right"></i>
         </button>
         <br>
@@ -129,22 +130,6 @@
       </div>
     </div>
   </div>
-  <script>
-    let cekMe = document.querySelector("#exampleCheck1");
-    cekMe.addEventListener('click', e => {
-      if (document.getElementById("exampleCheck1").checked == true) {
-        document.querySelector("[name=accept]").checked = true;
-        document.getElementById("registerNow").disabled = false;
-      } else {
-        document.querySelector("[name=accept]").checked = false;
-        document.getElementById("registerNow").disabled = true;
-      }
-    })
-    document.getElementById("formMe").addEventListener("submit", e => {
-      if (document.querySelector("[name=accept]").checked == false)
-        e.preventDefault();
-    })
-  </script>
   <!-- insert just before the closing body tag </body> -->
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

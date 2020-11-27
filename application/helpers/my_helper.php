@@ -15,6 +15,13 @@ if (!function_exists('back')) {
     return  redirect($_SERVER['HTTP_REFERER']);
   }
 }
+function split_name($name)
+{
+  $name = trim($name);
+  $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+  $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
+  return array($first_name, $last_name);
+}
 function is_access($role_id, $menu_id)
 {
   $back =  false;

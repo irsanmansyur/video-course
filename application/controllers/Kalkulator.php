@@ -172,7 +172,7 @@ class Kalkulator extends MY_Controller
       "page_title" => "Selamat Datang",
       'active' => "cagr"
     ];
-    $years = 0;
+    $yearss = 0;
     if ($this->form_validation->run()) {
       $startYear = substr($this->input->post("start_date"), 0, 4);
 
@@ -186,6 +186,6 @@ class Kalkulator extends MY_Controller
       $data["growthRate"] = number_format(($endValue - $startValue) / $startValue * 100, 2);
       $data["compoundAnnual"] = number_format(((pow(($endValue / $startValue), (1 / $years))) - 1) * 100, 2);
     }
-    $this->template->load('public', 'kalkulator/index', array_merge($data, compact(["years"])));
+    $this->template->load('public', 'kalkulator/index', array_merge($data, compact(["yearss"])));
   }
 }

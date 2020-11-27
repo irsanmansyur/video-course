@@ -20,7 +20,7 @@
           <h5>“Kasih dia seekor ikan, dia bisa makan untuk sehari. Ajari dia cara memancing dan dia bisa makan untuk seumur hidup.”</h5>
           <div>
             <?php if (!is_login()) : ?>
-              <a href="#about" class="btn-get-started scrollto">Registrasi</a>
+              <a href="<?= base_url("register/user"); ?>" class="btn-get-started scrollto">Registrasi</a>
             <?php endif; ?>
           </div>
         </div>

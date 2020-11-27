@@ -3,6 +3,7 @@
 
 <head>
   <?php $this->load->view($thema_load . "components/head.php"); ?>
+  <?php $this->load->view($thema_load . "components/js_library.php"); ?>
 
 </head>
 
@@ -42,7 +43,6 @@
   <!-- Uncomment below i you want to use a preloader -->
   <div id="preloader"></div>
 
-  <?php $this->load->view($thema_load . "components/js_library.php"); ?>
   <script src="<?= $thema_folder . "pages/video/partials/main.js"; ?>"></script>
 
   <script>
@@ -52,7 +52,13 @@
 
       }
     });
+    $(document).ready(function() {
+      $(".twoDgt").change(function() {
+        $(this).val(parseFloat($(this).val()).toFixed(2));
+      });
+    });
   </script>
+
 </body>
 
 </html>

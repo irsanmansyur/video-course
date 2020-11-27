@@ -18,10 +18,10 @@
                   <td><input type="date" class="form-control" name="start_date" value="<?= set_value("start_date", null) ?? date("Y-m-d", time()); ?>">
                     <?= form_error("start_date", "<small class='text-danger'>", "</small>"); ?>
                   </td>
-                  <td style="text-align: right;">Rp. </td>
+                  <td style="text-align: right;"><b> Rp.</b> </td>
 
                   <td>
-                    <input type="number" class="form-control" name="start_date_value" value="<?= set_value("start_date_value") ?>">
+                    <input type="number" class="form-control twoDgt" name="start_date_value" value="<?= set_value("start_date_value") ?>">
                     <?= form_error("start_date_value", "<small class='text-danger'>", "</small>"); ?>
 
                   </td>
@@ -31,16 +31,17 @@
                   <td><input type="date" class="form-control" name="end_date" value="<?= set_value("end_date", null) ?? date("Y-m-d", time()); ?>">
                     <?= form_error("end_date", "<small class='text-danger'>", "</small>"); ?>
                   </td>
-                  <td style="text-align: right;">Rp. </td>
+                  <td style="text-align: right;"><b> Rp.</b> </td>
+
                   <td>
-                    <input type="number" class="form-control" name="end_date_value" value="<?= set_value("end_date_value") ?>">
+                    <input type="number" class="form-control twoDgt" name="end_date_value" value="<?= set_value("end_date_value") ?>">
                     <?= form_error("end_date_value", "<small class='text-danger'>", "</small>"); ?>
                   </td>
                 </tr>
                 <tr>
                   <td colspan="3" class="bg-dark text-white">Years</td>
                   <td class="bg-danger text-white">
-                    <?= @$years; ?>
+                    <?= @$yearss; ?>
                   </td>
                 </tr>
                 <tr>

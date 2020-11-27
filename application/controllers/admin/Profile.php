@@ -14,6 +14,18 @@ class Profile extends Admin_Controller
 
 
     $this->load->library('form_validation');
+    if ($user->email != $this->input->post("email")) {
+      $this->form_validation->set_rules(
+        'email',
+        'Email',
+        'trim|required|valid_email|is_unique[users.email]',
+        array(
+          'required'      => 'Anda harus mengisi %s.',
+          'valid_email'      => 'Anda harus mengisi %s. dengan benar',
+          'is_unique'     => '%s ini sudah terdaftar.'
+        )
+      );
+    } 
     $this->form_validation->set_rules("name", "Name User", "required");
     if ($this->input->post("jabatan"))
       $this->form_validation->set_rules("jabatan", "User Jabatan", "required|min_length[4]");

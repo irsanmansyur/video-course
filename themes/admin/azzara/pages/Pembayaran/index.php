@@ -50,7 +50,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Nama User</th>
-                      <th scope="col">Tanggal Pembayaran</th>
+                      <th scope="col">Tanggal Upload</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>

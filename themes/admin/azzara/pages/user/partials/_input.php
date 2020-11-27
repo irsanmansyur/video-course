@@ -1,10 +1,12 @@
 <center>
-  <div class="card-avatar">
-    <input type="file" name="gambar" id="imagechange" class="d-none" />
-    <a href="#pablo" id="changePhoto">
-      <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= $user_edit->takeProfile() ?>">
-    </a>
-    <h3 class="mt-4">Profile Picture</h3>
+  <?php if ($user_edit->name_rules == "Admin") : ?>
+    <div class="card-avatar">
+      <input type="file" name="gambar" id="imagechange" class="d-none" />
+      <a href="#pablo" id="changePhoto">
+        <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= $user_edit->takeProfile() ?>">
+      </a>
+      <h3 class="mt-4">Profile Picture</h3>
+    <?php endif; ?>
 </center>
 <div class="row mt-3">
   <div class="col-md-6">
