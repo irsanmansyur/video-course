@@ -7,7 +7,7 @@
             <table class="table">
               <thead>
                 <tr class="text-white bg-dark">
-                  <th colspan="2" style="text-align: right;">Date</th>
+                  <th colspan="2" style="text-align: center;">Date</th>
                   <th></th>
                   <th>Value</th>
                 </tr>

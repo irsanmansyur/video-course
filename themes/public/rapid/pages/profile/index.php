@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-          <a href="<?= base_url("admin/profile"); ?>" class="btn btn-danger d-block my-4">Ubah profile</a>
+          <a href="<?= base_url("admin/profile"); ?>" class="btn btn-danger d-block my-4">Ubah Profil</a>
         </div>
       </div>
 

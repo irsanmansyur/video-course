@@ -43,7 +43,7 @@ class Register extends MY_Controller
     } else {
       $this->form_validation->set_rules(
         'fullname',
-        'fullname',
+        'Fullname',
         'trim|required',
         array(
           'required'      => 'Anda harus mengisi %s.'
@@ -52,7 +52,7 @@ class Register extends MY_Controller
     }
     $this->form_validation->set_rules(
       'username',
-      'username',
+      'Username',
       'trim|required|is_unique[users.username]',
       array(
         'required'      => 'Anda harus mengisi %s.',

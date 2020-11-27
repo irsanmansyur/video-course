@@ -19,18 +19,6 @@
 
 
 <script>
-  function ready(callbackFunc) {
-    if (document.readyState !== "loading") {
-      callbackFunc();
-    } else if (document.addEventListener) {
-      document.addEventListener("DOMContentloaded", callbackFunc());
-    } else
-      document.attachEvent('onreadystatechange', function() {
-        if (document.readyState == 'complete')
-          callbackFunc();
-      })
-  }
-
   const baseUrl = "<?= base_url() ?>";
 
 

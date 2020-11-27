@@ -1,3 +1,15 @@
+function ready(callbackFunc) {
+  if (document.readyState !== "loading") {
+    callbackFunc();
+  } else if (document.addEventListener) {
+    document.addEventListener("DOMContentloaded", callbackFunc());
+  } else
+    document.attachEvent('onreadystatechange', function () {
+      if (document.readyState == 'complete')
+        callbackFunc();
+    })
+}
+
 ready(() => {
   let path = window.location.href;
   const fullpath = path;
@@ -20,5 +32,4 @@ ready(() => {
     elLinkSubmenuFullpath.closest(".nav-item").classList.add('active', 'submenu');
 
   }
-
 })

@@ -40,13 +40,15 @@
        </div>
 
        <ul class="nav">
+
          <li class="nav-item">
            <a href="<?= base_url('admin/dashboard'); ?>">
              <i class="fas fa-home"></i>
-             <p>Dashboard</p>
-             <span class="badge badge-count">5</span>
+             <p>Beranda</p>
+             <!-- <span class="badge badge-count">5</span> -->
            </a>
          </li>
+
 
          <?php foreach ($user->menus as  $row) : ?>
 

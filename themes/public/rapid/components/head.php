@@ -1,12 +1,13 @@
 <meta charset="utf-8">
-<title><?= $page_title; ?></title>
+<title>Sahampreneur | <?= $page_title; ?></title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="<?= @$page_keyword; ?>" name="keywords">
 <meta content="<?= @$page_description; ?>" name="description">
 
 <!-- Favicons -->
-<link src="<?= $thema_folder; ?>assets/img/sahampreneur.png" rel="icon">
-<link src="<?= $thema_folder; ?>assets/img/sahampreneur.png" rel="apple-touch-icon">
+<link rel="shortcut icon" href="<?= base_url("assets/img/logo/sahampreneur.ico") ?>">
+<link src="<?= base_url("assets/img/logo/sahampreneur.ico") ?>" rel="icon">
+<link src="<?= base_url("assets/img/logo/sahampreneur.ico") ?>" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">

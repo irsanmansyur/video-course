@@ -105,7 +105,19 @@
           }
         }).then((willDelete) => {
           if (willDelete) {
-            window.location = del.getAttribute('href');
+            let url = del.getAttribute('href');
+            fetch(url, {
+              method: "post"
+            }).then(res => res.json()).then(res => {
+              res.status && del.closest("tr").remove();
+              swal(res.message, {
+                buttons: {
+                  confirm: {
+                    className: `btn btn-${res.status ? "success" : "danger"}`
+                  }
+                }
+              });
+            })
           } else {
             swal("tidak jadi menghapus!", {
               buttons: {

@@ -6,18 +6,18 @@
 <!-- Fonts and icons -->
 <script src="<?= $thema_folder; ?>assets/js/plugin/webfont/webfont.min.js"></script>
 <script>
-    WebFont.load({
-        google: {
-            "families": ["Open+Sans:300,400,600,700"]
-        },
-        custom: {
-            "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
-            urls: ['<?= $thema_folder; ?>assets/css/fonts.css']
-        },
-        active: function() {
-            sessionStorage.fonts = true;
-        }
-    });
+  WebFont.load({
+    google: {
+      "families": ["Open+Sans:300,400,600,700"]
+    },
+    custom: {
+      "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
+      urls: ['<?= $thema_folder; ?>assets/css/fonts.css']
+    },
+    active: function() {
+      sessionStorage.fonts = true;
+    }
+  });
 </script>
 
 <!-- CSS Files -->
@@ -26,4 +26,3 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link rel="stylesheet" href="<?= $thema_folder; ?>assets/css/demo.css">
 <link rel="stylesheet" href="<?= $thema_folder; ?>assets/css/style.css">
-<script src="<?= $thema_folder; ?>assets/js/main.js"></script>

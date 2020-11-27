@@ -10,12 +10,14 @@
   </div>
   <div class="card-body">
     <div class="user-profile text-center">
-      <h1>Welcome</h1>
+      <h1>Selamat datang</h1>
       <div class="name"><?= $user->name; ?>,</div>
       <div class="email"><?= $user->email; ?></div>
-      <div class="view-profile mt-4">
-        <a href="<?= base_url('admin/profile'); ?>" class="btn btn-secondary btn-block">View Full Profile</a>
-      </div>
+      <?php if (current_url() != base_url('admin/profile')) : ?>
+        <div class="view-profile mt-4">
+          <a href="<?= base_url('admin/profile'); ?>" class="btn btn-secondary btn-block">Lihat Profil</a>
+        </div>
+      <?php endif; ?>
     </div>
 
   </div>

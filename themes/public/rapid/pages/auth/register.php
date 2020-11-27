@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>RegistrationForm_v1 by Colorlib</title>
+  <title>Form Pendaftaran Klient Sahampreneur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- MATERIAL DESIGN ICONIC FONT -->
@@ -18,12 +18,14 @@
 <body>
 
   <div class="wrapper" style="background-image: url('<?= $thema_folder; ?>assets/auth/images/bg-registration-form-1.jpg');">
-    <div class="inner">
+    <div class="inner" style="min-height: 
+    80vh;position:relative">
       <div class="image-holder">
-        <img src="<?= $thema_folder; ?>assets/auth/images/registration-form-1.jpg" alt="" style="height: 100%;">
+        <img src="<?= base_url("assets\img\logo\sahampreneur.png") ?>" alt="" style="min-height:100%">
       </div>
+
       <form method="post" id="formMe">
-        <h3>Registration Form</h3>
+        <h3>Form pendaftaran</h3>
         <div class="form-group " style=" margin-bottom: 25px;">
           <div class="row">
             <div class="col-6">
@@ -67,9 +69,9 @@
           <i class="zmdi zmdi-lock"></i>
           <?= form_error("confirmpassword", "<div class='text-danger'>", "</div>"); ?>
         </div>
+        <small class="text-dark">Apakah kamu sudah punya kode refereal..? Jika ada masukkan disini</small>
         <div class="form-wrapper" style="margin-bottom: 25px;">
-          <span class="text-dark">Do You have Code Referal..? Insert Here / Empty or not</span>
-          <input style="margin-bottom: 5px;" name="codeReferal" value="<?= set_value('codeReferal') ?>" placeholder="Code Referal" class="form-control">
+          <input style="margin-bottom: 5px;" name="codeReferal" value="<?= set_value('codeReferal') ?>" placeholder="Kode Referal" class="form-control">
           <i class="zmdi zmdi-lock"></i>
           <?= form_error("codeReferal", "<div class='text-danger'>", "</div>"); ?>
         </div>
@@ -78,7 +80,7 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" id="cekAccept" style="color: black;">Saya setuju dengan <a href="#" data-toggle="modal" data-target="#exampleModalLong">Term and Conditions</a> dan <a href="#" data-toggle="modal" data-target="#exampleModalLongPrivacy">Privacy Policy</a> Sahampreneur.</label>
         </div>
-        <button type="submit" id="registerNow" disabled>Register
+        <button type="submit" id="registerNow" disabled>Daftar
           <i class="zmdi zmdi-arrow-right"></i>
         </button>
         <br>

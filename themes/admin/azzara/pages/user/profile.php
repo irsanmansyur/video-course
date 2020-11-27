@@ -50,8 +50,8 @@
                     <div class="row mt-3">
                       <div class="col-md-6">
                         <div class="form-group form-group-default">
-                          <label>Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Name" value="<?= $userMe->name ?? set_value('name'); ?>">
+                          <label>Nama</label>
+                          <input type="text" class="form-control" name="name" placeholder="Nama" value="<?= $userMe->name ?? set_value('name'); ?>">
                         </div>
                       </div>
                       <div class="col-md-6">

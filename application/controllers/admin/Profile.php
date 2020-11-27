@@ -19,7 +19,7 @@ class Profile extends Admin_Controller
       $this->form_validation->set_rules("jabatan", "User Jabatan", "required|min_length[4]");
     if ($this->form_validation->run() == false) {
       $data = [
-        'page_title' => "Profile User",
+        'page_title' => "Profil User",
         "userMe" => $user
       ];
       $this->template->load('admin', 'user/profile', $data);

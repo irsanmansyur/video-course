@@ -54,17 +54,17 @@
           <div class="row form-sub m-0">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="rememberme">
-              <label class="custom-control-label" for="rememberme">Remember Me</label>
+              <label class="custom-control-label" for="rememberme">Ingat saya</label>
             </div>
 
             <!-- <a href="#" class="link float-right">Forget Password ?</a> -->
           </div>
           <div class="form-action mb-3">
-            <button type="submit" class="btn btn-primary btn-rounded btn-login">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-rounded btn-login">Masuk</button>
           </div>
           <div class="login-account">
-            <span class="msg">Don't have an account yet ?</span>
-            <a href="<?= base_url('register/user'); ?>" id="show-signup" class="link">Sign Up</a>
+            <span class="msg">Tidak punya akun ? </span>
+            <a href="<?= base_url('register/user'); ?>" id="show-signup" class="link">Daftar disini</a>
           </div>
         </div>
       </form>
