@@ -172,6 +172,7 @@ class Kalkulator extends MY_Controller
       "page_title" => "Selamat Datang",
       'active' => "cagr"
     ];
+    $years = 0;
     if ($this->form_validation->run()) {
       $startYear = substr($this->input->post("start_date"), 0, 4);
 
