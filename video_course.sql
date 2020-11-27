@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 27, 2020 at 07:39 AM
+-- Generation Time: Nov 27, 2020 at 08:06 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.25
 
@@ -280,7 +280,8 @@ INSERT INTO `submenus` (`id`, `menu_id`, `name`, `icon`, `url`, `status`, `is_ac
 (14, 5, 'Diterima', '', 'admin/pembayaran?type=diterima', 1, 'public'),
 (16, 2, 'Users Setting', '', 'admin/user/list', 1, 'public'),
 (17, 6, 'Masukan', '', 'admin/masukan', 1, 'public'),
-(18, 2, 'Bank', '', 'admin/bank', 1, 'public');
+(18, 2, 'Bank', '', 'admin/bank', 1, 'public'),
+(19, 6, 'Why US', '', 'admin/why_us', 1, 'public');
 
 -- --------------------------------------------------------
 
@@ -358,6 +359,26 @@ CREATE TABLE `videos` (
 INSERT INTO `videos` (`id`, `kategori_id`, `no_urut`, `title`, `description`, `file`, `created_at`, `updated_at`, `status`) VALUES
 (3, 5, 3, 'Blade dengan tehnik yang bagus', 'dsfdfdfdfdffdf', '5_Blade_luar_biasa_ya.mp4', '2020-11-02 23:06:02', '2020-11-02 23:06:02', 1),
 (4, 5, 1, 'Instal Laravel Tentunya', 'Hal yang pertama di lakukan tentunya ialah edit video dong ..!!', '2_Install_Laravel_7_pastinya1.mp4', '2020-11-12 19:33:58', '2020-11-12 19:33:58', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `why_us`
+--
+
+CREATE TABLE `why_us` (
+  `id` int(11) NOT NULL,
+  `name` varchar(33) NOT NULL,
+  `val` varchar(66) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `why_us`
+--
+
+INSERT INTO `why_us` (`id`, `name`, `val`, `status`) VALUES
+(1, 'Klients', '900', 0);
 
 --
 -- Indexes for dumped tables
@@ -463,6 +484,12 @@ ALTER TABLE `videos`
   ADD KEY `kategori_id` (`kategori_id`);
 
 --
+-- Indexes for table `why_us`
+--
+ALTER TABLE `why_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -530,7 +557,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -549,6 +576,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `videos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `why_us`
+--
+ALTER TABLE `why_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

@@ -21,8 +21,8 @@ class Home extends MY_Controller
    */
   public function index()
   {
-    $this->load->model(["testimonial_model", "kategori_model", "user_model"]);
-
+    $this->load->model(["testimonial_model", "kategori_model", "user_model", 'why_us_model']);
+    $whyUses = $this->why_us_model->all();
     $kategories = $this->kategori_model->all(6);
     $admins = $this->user_model->isAdmin(8);
 
@@ -31,6 +31,6 @@ class Home extends MY_Controller
       "page_title" => "Selamat Datang",
     ];
 
-    $this->template->load('public', 'home/index', array_merge($data, compact(['testimonials', "admins", "kategories"])));
+    $this->template->load('public', 'home/index', array_merge($data, compact(['testimonials', "admins", "kategories", "whyUses"])));
   }
 }

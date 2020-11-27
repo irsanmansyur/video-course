@@ -56,27 +56,12 @@ Why Us Section
   <div class="container">
     <div class="row counters">
 
-      <div class="col-lg-3 col-6 text-center">
-        <span data-toggle="counter-up"><?= @$klient ?? 274; ?></span>
-        <p>Klients</p>
-      </div>
-
-      <div class="col-lg-3 col-6 text-center">
-        <span data-toggle="counter-up">421</span>
-        <p>
-          Proyek</p>
-      </div>
-
-      <div class="col-lg-3 col-6 text-center">
-        <span data-toggle="counter-up">1,364</span>
-        <p>Hours Of Support</p>
-      </div>
-
-      <div class="col-lg-3 col-6 text-center">
-        <span data-toggle="counter-up">18</span>
-        <p>Hard Workers</p>
-      </div>
-
+      <?php foreach ($whyUses as $whyUs) : ?>
+        <div class="col-lg-3 col-6 text-center">
+          <span data-toggle="counter-up"><?= @$whyUs->val ?? 274; ?></span>
+          <p><?= $whyUs->name; ?></p>
+        </div>
+      <?php endforeach; ?>
     </div>
 
   </div>
