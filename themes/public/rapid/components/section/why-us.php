@@ -1,5 +1,6 @@
 Why Us Section
 ============================-->
+<hr>
 <section id="why-us" class="wow fadeIn">
   <div class="container-fluid">
 

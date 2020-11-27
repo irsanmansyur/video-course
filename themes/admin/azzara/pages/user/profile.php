@@ -68,8 +68,8 @@
                         <div class="form-group form-group-default">
                           <label>status</label>
                           <select class="form-control" id="status" name="status">
-                            <option <?= $userMe->status == 'aktif' ? 'selected' : ''; ?> value="aktif">aktif</option>
-                            <option value="non aktif" <?= $userMe->status == 'non aktif' ? 'selected' : ''; ?>>Non Aktif</option>
+                            <option <?= $userMe->status == '1' ? 'selected' : ''; ?> value="1">aktif</option>
+                            <option value="0" <?= $userMe->status == '0' ? 'selected' : ''; ?>>Non Aktif</option>
                           </select>
                         </div>
                       </div>

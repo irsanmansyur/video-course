@@ -28,6 +28,7 @@ class Profile extends Admin_Controller
         "name" => $this->input->post("name"),
         "status" => $this->input->post("status"),
       ];
+
       if ($this->input->post("jabatan")) {
         $this->db->where('role_id', $user->role_id);
         $this->db->where('user_id', $user->id);
