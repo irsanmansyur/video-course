@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 27, 2020 at 08:06 AM
+-- Generation Time: Nov 27, 2020 at 04:03 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.25
 
@@ -196,7 +196,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`, `alasan`, `updated`) VALUES
-(2, 18, '2020-11-25 21:19:34', '2020-11-25 21:19:34', 200000, 'LOGO_KABUPATEN_BANTAENG7.png', 1, ' ', 0);
+(2, 18, '2020-11-25 21:19:34', '2020-11-25 21:19:34', 200000, 'peterpan.jpg', 1, ' ', 0);
 
 -- --------------------------------------------------------
 
@@ -238,7 +238,7 @@ CREATE TABLE `settings` (
 INSERT INTO `settings` (`id`, `name`, `value`, `status`) VALUES
 (1, 'theme_admin', 'azzara', 0),
 (2, 'theme_public', 'rapid', 0),
-(12, 'name_app', 'Video Course', 0),
+(12, 'name_app', 'SahamPreneur', 0),
 (14, 'Alamat', 'Kamp. Sarroanging Desa Mappilawing', 0),
 (15, 'harga_member', '200000', 0),
 (16, 'facebook_link', 'http://facebook.com/ichank00', 0),
@@ -276,12 +276,12 @@ INSERT INTO `submenus` (`id`, `menu_id`, `name`, `icon`, `url`, `status`, `is_ac
 (9, 3, 'Kategori', '', 'admin/kategori', 1, 'public'),
 (11, 3, 'List Video', '', 'admin/video', 1, 'public'),
 (12, 4, 'List Testimonial', '', 'admin/testimonial', 1, 'public'),
-(13, 5, 'Belum Di ACC', '', 'admin/pembayaran?type=belum_acc', 1, 'public'),
-(14, 5, 'Diterima', '', 'admin/pembayaran?type=diterima', 1, 'public'),
+(13, 5, 'Pending', '', 'admin/pembayaran?type=belum_acc', 1, 'public'),
+(14, 5, 'Approve', '', 'admin/pembayaran?type=diterima', 1, 'public'),
 (16, 2, 'Users Setting', '', 'admin/user/list', 1, 'public'),
-(17, 6, 'Masukan', '', 'admin/masukan', 1, 'public'),
+(17, 6, 'Message', '', 'admin/masukan', 1, 'public'),
 (18, 2, 'Bank', '', 'admin/bank', 1, 'public'),
-(19, 6, 'Why US', '', 'admin/why_us', 1, 'public');
+(19, 6, 'Number in Dashboard', '', 'admin/why_us', 1, 'public');
 
 -- --------------------------------------------------------
 
@@ -331,8 +331,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `codeReferal`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
 (1, 'Super Admin', '', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'admin', '', 'admin@gmail.com', 'Admin Saja', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '7v4DYAyDPXBpRE7KpJOtPRdDxNKdPua9ukaPZhMybnbtFZDM4ikSG6g99fcEBB49k8mqi7XG7Q6qfhCV0nQrmQ==', 0),
-(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'rLlmraBgrnSmCWdwPH91kVYx6XuqYl4imVhOjiWqss3Zmf62y5prt1Vn/6mELRM/R7CkF6me_QTRCgd_opdmxA==', 0);
+(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'sahampre2.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'Uz/Eh30vJxHTt77gCUvOox7zs1Hw9aZXDJh46MafxW5Nw2JJMeuqu57gvybb8XzFCfnQWqLWIqrSrd1G8hvEQQ==', 1),
+(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyurs', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'sahampre.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'i7euMfot1O1UMfxZg9PRa0mpAtniyHQrbqk/qQ/2e5Buankb5AU6ZD8o3OWaaJSLUs0/gZ8nIuTYY2DIjExf8Q==', 1);
 
 -- --------------------------------------------------------
 
