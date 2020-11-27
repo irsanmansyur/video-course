@@ -21,7 +21,7 @@ class Test extends MY_Controller
    */
   public function index()
   {
-    die(var_dump(split_name("irsan")[0]));;
+    die(var_dump(split_name("irsan gf gfd dg")[0]));;
   }
   public function d()
   {
