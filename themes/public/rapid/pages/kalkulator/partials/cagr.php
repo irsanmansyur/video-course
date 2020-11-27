@@ -14,7 +14,9 @@
               <tbody>
                 <tr>
                   <td class="bg-dark text-white">Start Value</td>
-                  <td><input type="date" class="form-control" name="start_date" value="<?= set_value("start_date", null) ?? date("Y-m-d", time()); ?>"></td>
+                  <td><input type="date" class="form-control" name="start_date" value="<?= set_value("start_date", null) ?? date("Y-m-d", time()); ?>">
+                    <?= form_error("start_date", "<small class='text-danger'>", "</small>"); ?>
+                  </td>
                   <td style="text-align: right;">Rp. </td>
 
                   <td>
@@ -25,7 +27,9 @@
                 </tr>
                 <tr>
                   <td class="bg-dark text-white">End Value</td>
-                  <td><input type="date" class="form-control" name="end_date" value="<?= set_value("end_date", null) ?? date("Y-m-d", time()); ?>"></td>
+                  <td><input type="date" class="form-control" name="end_date" value="<?= set_value("end_date", null) ?? date("Y-m-d", time()); ?>">
+                    <?= form_error("end_date", "<small class='text-danger'>", "</small>"); ?>
+                  </td>
                   <td style="text-align: right;">Rp. </td>
                   <td>
                     <input type="number" class="form-control" name="end_date_value" value="<?= set_value("end_date_value") ?>">
@@ -34,10 +38,20 @@
                 </tr>
                 <tr>
                   <td colspan="3" class="bg-dark text-white">Years</td>
-                  <td>
-                    <input type="number" class="form-control" name="year" value="<?= set_value("year") ?>">
-                    <?= form_error("year", "<small class='text-danger'>", "</small>"); ?>
-
+                  <td class="bg-danger text-white">
+                    <?= @$years; ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="bg-dark text-white">Growth Rate</td>
+                  <td class="bg-danger text-white">
+                    <?= @$growthRate . "%"; ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="bg-dark text-white">Compound Annual Growth Rate</td>
+                  <td class="bg-danger text-white align-right">
+                    <?= @$compoundAnnual . "%"; ?>
                   </td>
                 </tr>
                 <tr>
@@ -45,23 +59,7 @@
                     <input type="submit" class="form-control bg-primary text-white"" name=" cagr" value="Hitung">
                   </td>
                 </tr>
-                <?php if (isset($growthRate)) : ?>
-                  <tr>
-                    <td colspan="3" class="bg-dark text-white">Growth Rate</td>
-                    <td class="bg-danger text-white">
-                      <?= $growthRate . "%"; ?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="bg-dark text-white">Compound Annual Growth Rate</td>
-                    <td class="bg-danger text-white align-right">
-                      <?= $compoundAnnual . "%"; ?>
-                    </td>
-                  </tr>
-                <?php endif; ?>
-
               </tbody>
-
             </table>
           </div>
         </div>

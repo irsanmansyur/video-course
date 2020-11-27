@@ -7,19 +7,19 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <td>Name of Stock</td>
+                  <td colspan="2">Name of Stock</td>
                   <td colspan="2"><input type="text" class="form-control" name="name_of_stock" value="<?= set_value("name_of_stock"); ?>"></td>
                 </tr>
 
                 <tr>
-                  <td>Stock Symbol</td>
+                  <td colspan="2">Stock Symbol</td>
                   <td colspan="2"><input type="text" class="form-control" name="stock_symbol" value="<?= set_value("stock_symbol"); ?>"></td>
                 </tr>
 
                 <tr>
                   <td>Operoting Cash Flow (Current)</td>
                   <td><b>Rp. </b></td>
-                  <td>
+                  <td colspan="2">
                     <input type="number" class="form-control" min="0" name="cash_flow" value="<?= set_value("cash_flow"); ?>">
                     <?= form_error("cash_flow", "<small class='text-danger'>", "</small>"); ?>
                   </td>
@@ -27,34 +27,37 @@
                 <tr>
                   <td>Total Debt (Short Term Debt + Long Tern Debt)</td>
                   <td><b>Rp. </b></td>
-                  <td><input type="number" value="<?= set_value("total_debt"); ?>" class="form-control" name="total_debt" min="0">
+                  <td colspan="2"><input type="number" value="<?= set_value("total_debt"); ?>" class="form-control" name="total_debt" min="0">
                     <?= form_error("total_debt", "<small class='text-danger'>", "</small>"); ?>
                   </td>
                 </tr>
+
                 <tr>
                   <td>Cash and Short Term Investments</td>
                   <td><b>Rp. </b></td>
-                  <td><input type="number" class="form-control" name="cash_and_short" min="0" step="1" value="<?= set_value("cash_and_short"); ?>">
+                  <td colspan="2"><input type="number" class="form-control" name="cash_and_short" min="0" step="1" value="<?= set_value("cash_and_short"); ?>">
                     <?= form_error("cash_and_short", "<small class='text-danger'>", "</small>"); ?>
-
                   </td>
                 </tr>
+
                 <tr>
-                  <td>Cash Flow Growth Rate (Year 1 - Year 4</td>
-                  <td colspan="2"><input type="number" class="form-control" name="percent_tp" step=".01" value="<?= set_value("percent_tp"); ?>">
+                  <td colspan="2">Cash Flow Growth Rate (Year 1 - Year 4</td>
+                  <td><input type="number" class="form-control" name="percent_tp" step=".01" value="<?= set_value("percent_tp"); ?>">
                     <?= form_error("percent_tp", "<small class='text-danger'>", "</small>"); ?>
                   </td>
+                  <td><b>%</b></td>
                 </tr>
                 <tr>
-                  <td>Cash Flow Growth Rate (Year 6 - Year 8</td>
-                  <td colspan="2"><input type="number" class="form-control" name="percent_te" step=".01" value="<?= set_value('percent_te'); ?>">
+                  <td colspan="2">Cash Flow Growth Rate (Year 6 - Year 8</td>
+                  <td><input type="number" class="form-control" name="percent_te" step=".01" value="<?= set_value('percent_te'); ?>">
                     <?= form_error("percent_te", "<small class='text-danger'>", "</small>"); ?>
                   </td>
+                  <td><b>%</b></td>
                 </tr>
 
                 <tr>
                   <td>No. of Shares Outstanding</td>
-                  <td colspan="2"><input type="number" min="0" name="shares_outstanding" step=".01" class="form-control" value="<?= set_value('shares_outstanding'); ?>">
+                  <td colspan="3"><input type="number" min="0" name="shares_outstanding" step=".01" class="form-control" value="<?= set_value('shares_outstanding'); ?>">
                     <?= form_error("shares_outstanding", "<small class='text-danger'>", "</small>"); ?>
                   </td>
                 </tr>

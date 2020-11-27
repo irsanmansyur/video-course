@@ -147,25 +147,44 @@ class Kalkulator extends MY_Controller
       'required'      => 'Anda harus mengisi %s.',
       "numeric" => "Mohon input hanya angka"
     ]);
-    $this->form_validation->set_rules("end_date_value", "End Date Value ", "numeric|required", [
+
+    $this->form_validation->set_rules("end_date_value", "Start Date Value ", "numeric|required", [
       'required'      => 'Anda harus mengisi %s.',
       "numeric" => "Mohon input hanya angka"
     ]);
-    $this->form_validation->set_rules("year", "Year ", "numeric|required", [
-      'required'      => 'Anda harus mengisi %s.',
-      "numeric" => "Mohon input hanya angka"
-    ]);
+
+
+    // $this->form_validation->set_rules("start_date", "Start Date  ", "required|regex_match[(0[1-9]|1[0-9]|2[0-9]|3(0-9))-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])]", [
+    //   'required'      => 'Anda harus mengisi %s.',
+    //   "numeric" => "Mohon input hanya angka",
+    //   "regex_match" => "%s Harus berformat tanggal yang benar",
+    // ]);
+    // $this->form_validation->set_rules("end_date", "End Date  ", "required|regex_match[(0[1-9]|1[0-9]|2[0-9]|3(0-9))-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])]", [
+    //   'required'      => 'Anda harus mengisi %s.',
+    //   "numeric" => "Mohon input hanya angka",
+    //   "regex_match" => "%s Harus berformat tanggal yang benar",
+    // ]);
+
+
+
+
     $data = [
       "page_title" => "Selamat Datang",
       'active' => "cagr"
     ];
     if ($this->form_validation->run()) {
-      $startValue = $this->input->post("start_date_value");
+      $startYear = substr($this->input->post("start_date"), 0, 4);
+
+      $startValue =  $this->input->post("start_date_value");
+
+      $endYear = substr($this->input->post("end_date"), 0, 4);
       $endValue = $this->input->post("end_date_value");
-      $year = $this->input->post("year");
+
+      $years =  $endYear - $startYear;
+
       $data["growthRate"] = number_format(($endValue - $startValue) / $startValue * 100, 2);
-      $data["compoundAnnual"] = number_format(((pow(($endValue / $startValue), (1 / $year))) - 1) * 100, 2);
+      $data["compoundAnnual"] = number_format(((pow(($endValue / $startValue), (1 / $years))) - 1) * 100, 2);
     }
-    $this->template->load('public', 'kalkulator/index', array_merge($data, compact([])));
+    $this->template->load('public', 'kalkulator/index', array_merge($data, compact(["years"])));
   }
 }
