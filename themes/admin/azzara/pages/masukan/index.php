@@ -49,6 +49,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">nama</th>
+                      <th scope="col">Di Kirim Pada</th>
                       <th scope="col">email</th>
                       <th scope="col">Subject</th>
                       <th scope="col">Pesan</th>
@@ -61,6 +62,7 @@
                       <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $masukan->name; ?></td>
+                        <td><?= date('d-m-Y', strtotime($masukan->created_at)); ?></td>
                         <td><?= $masukan->email; ?></td>
                         <td><?= $masukan->subject; ?></td>
                         <td><?= $masukan->message; ?></td>

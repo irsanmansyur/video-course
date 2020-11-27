@@ -14,7 +14,10 @@
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
         <div class="col-md-6 intro-info order-md-first order-last">
-          <h2>Rapid Solutions<br>for Your <span>Business!</span></h2>
+
+          <!-- <h2>Rapid Solutions<br>for Your <span>Business!</span></h2> -->
+          <h2>SAHAMPRENEUR</h2>
+          <h5>“Kasih dia seekor ikan, dia bisa makan untuk sehari. Ajari dia cara memancing dan dia bisa makan untuk seumur hidup.”</h5>
           <div>
             <?php if (!is_login()) : ?>
               <a href="#about" class="btn-get-started scrollto">Registrasi</a>
@@ -23,7 +26,7 @@
         </div>
 
         <div class="col-md-6 intro-img order-md-last order-first">
-          <img src="<?= $thema_folder; ?>assets/img/corona.jpg" alt="" class="img-fluid">
+          <img src="<?= base_url("assets/img/sahampre.jpg"); ?>" alt="" class="img-fluid" style="-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.14);-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.14);box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.14);">
         </div>
       </div>
 
@@ -50,7 +53,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-left">
             <h3 class="cta-title">Kalkulator Saham</h3>
-            <p class="cta-text"> Ayo menghitung saham kamu! .</p>
+            <p class="cta-text">Klik disini untuk menghitung saham kamu! .</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="<?= base_url("kalkulator"); ?>">Klik Disini</a>

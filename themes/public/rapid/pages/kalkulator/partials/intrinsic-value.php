@@ -17,7 +17,7 @@
                 </tr>
 
                 <tr>
-                  <td>Operoting Cash Flow (Current)</td>
+                  <td>Operating Cash Flow (Current)</td>
                   <td><b>Rp. </b></td>
                   <td colspan="2">
                     <input type="number" class="form-control" min="0" name="cash_flow" value="<?= set_value("cash_flow"); ?>">
@@ -41,14 +41,14 @@
                 </tr>
 
                 <tr>
-                  <td colspan="2">Cash Flow Growth Rate (Year 1 - Year 4</td>
+                  <td colspan="2">Cash Flow Growth Rate (Year 1 - Year 4)</td>
                   <td><input type="number" class="form-control" name="percent_tp" step=".01" value="<?= set_value("percent_tp"); ?>">
                     <?= form_error("percent_tp", "<small class='text-danger'>", "</small>"); ?>
                   </td>
                   <td><b>%</b></td>
                 </tr>
                 <tr>
-                  <td colspan="2">Cash Flow Growth Rate (Year 6 - Year 8</td>
+                  <td colspan="2">Cash Flow Growth Rate (Year 6 - Year 8)</td>
                   <td><input type="number" class="form-control" name="percent_te" step=".01" value="<?= set_value('percent_te'); ?>">
                     <?= form_error("percent_te", "<small class='text-danger'>", "</small>"); ?>
                   </td>
@@ -76,18 +76,25 @@
                 <tr>
                   <td>PV of 10 Years Cash Flow</td>
                   <td><input type="text" class="form-control" readonly value="<?= rupiah($year10 ?? '0', 2); ?>"> </td>
+                  <td></td>
+
                 </tr>
                 <tr>
                   <td>Intrinsic Value before Cash / Debt</td>
                   <td><input type="text" class="form-control" readonly value="<?= rupiah($intrinsicValue ?? '0', 2); ?>"></td>
+                  <td></td>
+
                 </tr>
                 <tr>
                   <td>(Less) Debt per Share</td>
                   <td><input type="text" class="form-control" readonly value="<?= rupiah($debtPerShare ?? '0', 2); ?>"> </td>
+                  <td></td>
+
                 </tr>
                 <tr>
                   <td>(Plus) Cash per Share</td>
                   <td><input type="text" class="form-control" readonly value="<?= rupiah($cashPerShare ?? '0', 2); ?>"> </td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>Final Intrinsic Value per Share</td>
@@ -98,12 +105,16 @@
                   <td>
                     <input type="text" class="form-control" readonly value="<?= date("Y", time()); ?>">
                   </td>
+                  <td></td>
+
                 </tr>
                 <tr>
                   <td>Discount Rate</td>
                   <td><input type="number" class="form-control" name="discount_rate" min="0" step="1" value="<?= set_value('discount_rate'); ?>">
                     <?= form_error("discount_rate", "<small class='text-danger'>", "</small>"); ?>
                   </td>
+                  <td><b>%</b></td>
+
                 </tr>
               </tbody>
             </table>

@@ -14,7 +14,7 @@
         <li class="active"><a href="<?= base_url(); ?>">Beranda</a></li>
         <?php if (current_url() != base_url()) : ?>
           <li><a href="<?= base_url(); ?>#about">Tentang Kami</a></li>
-          <li class="drop-down"><a href="#services">Video Saham</a>
+          <li class="drop-down"><a href="#services">Fitur Premium</a>
             <ul>
               <li><a href="<?= base_url("video"); ?>">Video</a></li>
               <li><a href="<?= base_url("kalkulator"); ?>">Kalkulator</a></li>
@@ -33,7 +33,7 @@
           <?php endif; ?>
         <?php else :; ?>
           <li><a href="#about">Tentang Kami</a></li>
-          <li class="drop-down"><a href="#services">Video Saham</a>
+          <li class="drop-down"><a href="#services">Fitur Premium</a>
             <ul>
               <li><a href="<?= base_url("video"); ?>">Video</a></li>
               <li><a href="<?= base_url("kalkulator"); ?>">Kalkulator</a></li>

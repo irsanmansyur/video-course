@@ -12,7 +12,7 @@
     Intro Section
   ============================-->
 
-  <main id="main" class='mt-5 vh-100'>
+  <main id="main" class='mt-5 mn-vh-100'>
     <div class="row">
       <div class="col-md-8 my-5">
         <div class="pl-5">
@@ -46,7 +46,7 @@
                 </div>
 
                 <!-- Card body -->
-                <div id="collaps<?= $kategori->id; ?>" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                <div id="collaps<?= $kategori->id; ?>" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
                   <ul class="list-group">
                     <?php foreach ($kategori->videos() as $video) : ?>
                       <a id="video<?= $video->id; ?>" data-start="0" class="video-select list-group-item d-flex align-items-center" href="#videoPlay" data-url="<?= base_url("assets/video/{$video->file}"); ?>">

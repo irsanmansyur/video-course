@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 21, 2020 at 05:45 PM
+-- Generation Time: Nov 27, 2020 at 07:39 AM
 -- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- PHP Version: 7.3.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,7 +65,7 @@ CREATE TABLE `access_role_user` (
 
 INSERT INTO `access_role_user` (`id`, `role_id`, `user_id`, `created_at`, `jabatan`) VALUES
 (3, 1, 1, '2020-11-08 01:41:16', ''),
-(4, 2, 2, '2020-11-08 01:41:16', ''),
+(4, 2, 2, '2020-11-08 01:41:16', 'fdfgd'),
 (106, 46, 18, '2020-11-10 15:27:17', '');
 
 -- --------------------------------------------------------
@@ -135,17 +135,18 @@ CREATE TABLE `masukan` (
   `name` varchar(133) NOT NULL,
   `email` varchar(122) NOT NULL,
   `subject` varchar(224) NOT NULL,
-  `message` text NOT NULL
+  `message` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `masukan`
 --
 
-INSERT INTO `masukan` (`id`, `name`, `email`, `subject`, `message`) VALUES
-(52, 'Managemen Access f', 'super-admin@gmail.com', 'dgdfg', 'yhtgfh'),
-(53, 'Yamaha', 'super-admin@gmail.com', 'dgdfg', 'gfdd'),
-(54, 'hfghfggfg', 'jkhghjghgf@jhghfg.bvh', 'hjghjgfgh', 'hjkghjkig\r\n');
+INSERT INTO `masukan` (`id`, `name`, `email`, `subject`, `message`, `created_at`) VALUES
+(52, 'Managemen Access f', 'super-admin@gmail.com', 'dgdfg', 'yhtgfh', '2020-11-27 15:38:06'),
+(53, 'Yamaha', 'super-admin@gmail.com', 'dgdfg', 'gfdd', '2020-11-27 15:38:06'),
+(54, 'hfghfggfg', 'jkhghjghgf@jhghfg.bvh', 'hjghjgfgh', 'hjkghjkig\r\n', '2020-11-27 15:38:06');
 
 -- --------------------------------------------------------
 
@@ -190,6 +191,13 @@ CREATE TABLE `pembayaran` (
   `updated` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id`, `user_id`, `created_at`, `updated_at`, `jumlah`, `bukti_pembayaran`, `status`, `alasan`, `updated`) VALUES
+(2, 18, '2020-11-25 21:19:34', '2020-11-25 21:19:34', 200000, 'LOGO_KABUPATEN_BANTAENG7.png', 1, ' ', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -232,7 +240,12 @@ INSERT INTO `settings` (`id`, `name`, `value`, `status`) VALUES
 (2, 'theme_public', 'rapid', 0),
 (12, 'name_app', 'Video Course', 0),
 (14, 'Alamat', 'Kamp. Sarroanging Desa Mappilawing', 0),
-(15, 'harga_member', '200000', 0);
+(15, 'harga_member', '200000', 0),
+(16, 'facebook_link', 'http://facebook.com/ichank00', 0),
+(17, 'instagram_link', '#ok', 0),
+(18, 'telegram_link', '#teleg', 0),
+(19, 'email', 'info.sahampreneur@gmail.com', 0),
+(20, 'phone_number', '+60172812462', 0);
 
 -- --------------------------------------------------------
 
@@ -317,8 +330,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `codeReferal`, `email`, `name`, `email_verified_at`, `password`, `profile`, `created_at`, `updated_at`, `remember_token`, `status`) VALUES
 (1, 'Super Admin', '', 'super-admin@gmail.com', 'Super Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '43xZdYal6MxFE8SI7ueJkCpE/PSZOguolAAEYsrlSmCezIGJbKmfcINpytUKobx8Me/oRw6K4z_bP8LHiSUkKg==', 1),
-(2, 'admin', '', 'admin@gmail.com', 'Admin', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', 'NhWJUaC_QrGLge5wOuOsCItvmNzBZz48hAQST/fXJhXbmthFz6XakX8P8Rr96PbFGNxM8v05aKuPuXCkAAV8oA==', 1),
-(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'agrneDCsHK2UgdsEKZ9KupFzxbS51ijJh3CrUjXPVAtT1pqCnn3YUvHaH8a5JuyW12MFdG4a2KoLtGJkj_/vWQ==', 1);
+(2, 'admin', '', 'admin@gmail.com', 'Admin Saja', '2020-10-08 09:15:55', '$2y$10$F101ScO91yhebnZUmrZlBuAul0vPx/Buut5Hpm7OsbDYTRfmaf6My', 'default.jpg', '2020-10-08 09:15:55', '2020-10-08 09:15:55', '7v4DYAyDPXBpRE7KpJOtPRdDxNKdPua9ukaPZhMybnbtFZDM4ikSG6g99fcEBB49k8mqi7XG7Q6qfhCV0nQrmQ==', 0),
+(18, 'irsanm', 'admin', 'irsan00mansyur@gmail.com', 'irsan Mansyur', '2020-11-10 15:27:17', '$2y$10$OYVVZf1VPbav1CHMtkoI8uSOYZRSKHn7spdliwsiBPby30FphtDi2', 'default.jpg', '2020-11-10 15:27:17', '2020-11-10 15:27:17', 'rLlmraBgrnSmCWdwPH91kVYx6XuqYl4imVhOjiWqss3Zmf62y5prt1Vn/6mELRM/R7CkF6me_QTRCgd_opdmxA==', 0);
 
 -- --------------------------------------------------------
 
@@ -499,7 +512,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `rules`
@@ -511,7 +524,7 @@ ALTER TABLE `rules`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `submenus`

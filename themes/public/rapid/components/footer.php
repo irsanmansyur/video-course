@@ -14,8 +14,12 @@
             <div class="col-sm-6">
 
               <div class="footer-info">
-                <h3>info</h3>
-                <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                <h3>Earnings Disclaimer</h3>
+
+                Disclaimer: Tidak Ada Proyeksi, Janji, atau Pernyataan Penghasilan
+                <hr>
+                <p>
+                  Anda mengakui dan setuju bahwa kami tidak memberikan implikasi, jaminan, janji, saran, proyeksi, representasi atau jaminan apapun kepada Anda tentang prospek atau pendapatan di masa depan, atau bahwa Anda akan mendapatkan uang, sehubungan dengan pembelian produk Sahampreneur, dan itu kami tidak mengizinkan proyeksi, janji, atau representasi seperti itu dari orang lain.</p>
               </div>
 
             </div>
@@ -23,21 +27,17 @@
             <div class="col-sm-6">
 
               <div class="footer-links">
-                <h4>Contact Us</h4>
+                <h4>Hubungi kami</h4>
                 <p>
-                  A108 Adam Street <br>
-                  New York, NY 535022<br>
-                  United States <br>
-                  <strong>Phone:</strong> +1 5589 55488 55<br>
-                  <strong>Email:</strong> info@example.com<br>
+                  <strong>Phone:</strong><?= @$settings->phone_number; ?><br>
+                  <strong>Email:</strong> <?= @$settings->email; ?><br>
                 </p>
               </div>
 
               <div class="social-links">
-                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="<?= @$settings->facebook_link; ?>" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="<?= @$settings->instagram_link; ?>" class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="<?= @$settings->telegram_link; ?>" class="telegram"><i class="fa fa-telegram"></i></a>
               </div>
 
             </div>
@@ -54,11 +54,11 @@
             <p>Kirim Keluhan atau masukan anda disini.</p>
             <form action="api/kirim/masukan" method="post" id="myForm" name="myForm" role="form" class="contactForm">
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nama" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
@@ -66,13 +66,13 @@
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="minlen:4" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5" data-rule="minlen:4" data-msg="Please write something for us" placeholder="Pesan"></textarea>
                 <div class="validation"></div>
               </div>
 
-              <div id="sendmessage" style="background-color: green;">Your message has been sent. Thank you!</div>
+              <div id="sendmessage" style="background-color: green;">Masukan Telah di kirim!</div>
               <div id="errormessage"></div>
-              <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              <div class="text-center"><button type="submit" title="Send Message">Kirim Pesan</button></div>
             </form>
           </div>
 

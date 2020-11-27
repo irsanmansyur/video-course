@@ -7,7 +7,8 @@
             <table class="table">
               <thead>
                 <tr class="text-white bg-dark">
-                  <th colspan="3" style="text-align: right;">Date</th>
+                  <th colspan="2" style="text-align: right;">Date</th>
+                  <th></th>
                   <th>Value</th>
                 </tr>
               </thead>
@@ -49,7 +50,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="3" class="bg-dark text-white">Compound Annual Growth Rate</td>
+                  <td colspan="3" class="bg-dark text-white">Compound Annual Growth Rate (CAGR)</td>
                   <td class="bg-danger text-white align-right">
                     <?= @$compoundAnnual . "%"; ?>
                   </td>

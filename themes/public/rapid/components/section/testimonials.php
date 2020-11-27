@@ -5,8 +5,8 @@
     <div class="container">
 
       <header class="section-header">
-        <h3>Testimoni</h3>
-        <h4 class="text-center">Beberepa Testimonial Dari Client Kami </h4>
+        <h3>Testimonial</h3>
+        <h4 class="text-center">Beberepa Testimonial Dari Klient Kami </h4>
       </header>
 
       <div class="row justify-content-center">

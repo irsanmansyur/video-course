@@ -4,8 +4,8 @@
   <section id="team" class="section-bg">
     <div class="container">
       <div class="section-header">
-        <h3>Admin Kami</h3>
-        <p>Kami selalu siap kapan saja di butuhkan, dengan beberapa admin profesional!</p>
+        <h3>Teams Profesional Kami</h3>
+        <!-- <p>Kami selalu siap kapan saja di butuhkan, dengan beberapa admin profesional!</p> -->
       </div>
       <div class="row justify-content-center">
         <?php foreach ($admins as $admin) : ?>

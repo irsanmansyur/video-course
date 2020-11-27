@@ -51,36 +51,48 @@
                       <div class="col-md-6">
                         <div class="form-group form-group-default">
                           <label>Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Name" value="<?= $user->name ?? set_value('name'); ?>">
+                          <input type="text" class="form-control" name="name" placeholder="Name" value="<?= $userMe->name ?? set_value('name'); ?>">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group form-group-default">
                           <label>Username</label>
-                          <input type="text" readonly class="form-control" name="username" placeholder="Name" value="<?= $user->username ??  set_value('username'); ?>">
+                          <input type="text" readonly class="form-control" name="username" placeholder="Name" value="<?= $userMe->username ??  set_value('username'); ?>">
                         </div>
                       </div>
 
 
                     </div>
                     <div class="row mt-3">
-
                       <div class="col-md-12">
                         <div class="form-group form-group-default">
                           <label>status</label>
                           <select class="form-control" id="status" name="status">
-                            <option <?= $user->status == 'aktif' ? 'selected' : ''; ?> value="aktif">aktif</option>
-                            <option value="non aktif" <?= $user->status == 'non aktif' ? 'selected' : ''; ?>>Non Aktif</option>
+                            <option <?= $userMe->status == 'aktif' ? 'selected' : ''; ?> value="aktif">aktif</option>
+                            <option value="non aktif" <?= $userMe->status == 'non aktif' ? 'selected' : ''; ?>>Non Aktif</option>
                           </select>
                         </div>
                       </div>
+                      <?php if (in_role("Admin")) : ?>
+                        <div class="col-md-12">
+                          <div class="form-group form-group-default">
+                            <div class="form-group form-group-default">
+                              <label>Jabatan / Khusus LEVEL Admin</label>
+                              <input class="form-control" name="jabatan" value="<?= set_value("jabatan", null) ??  $userMe->jabatan ?? ''; ?>">
+                            </div>
+                            <?= form_error("jabatan", "<div class='text-danger pl-2'>", "</div>"); ?>
+
+                          </div>
+                        </div>
+                      <?php endif; ?>
+
 
                     </div>
                     <div class="row mt-3">
                       <div class="col-md-6">
                         <div class="form-group form-group-default">
                           <label>Email</label>
-                          <input type="email" readonly class="form-control" name="email" placeholder="Name email" value="<?= $user->email  ??  set_value('email'); ?>">
+                          <input type="email" readonly class="form-control" name="email" placeholder="Name email" value="<?= $userMe->email  ??  set_value('email'); ?>">
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -100,7 +112,7 @@
                             <div class="card-avatar">
                               <input type="file" name="gambar" id="imagechange" class="d-none" />
                               <a href="#pablo" id="changePhoto">
-                                <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= base_url('assets/img/profile/' . $user->profile) ?>">
+                                <img class="img thumbnail rounded-circle" style="width: 100px;height:100px;" src="<?= base_url('assets/img/profile/' . $userMe->profile) ?>">
                               </a>
                             </div>
                           </div>

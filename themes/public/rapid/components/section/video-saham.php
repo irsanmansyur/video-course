@@ -5,8 +5,8 @@
     <div class="container">
 
       <header class="section-header">
-        <h3>Video yang menarik</h3>
-        <p>Beberapa kategori video menarik yang bisa anda dapatkan ketika menjadi anggota premiun di situs kami..!</p>
+        <h3>Video</h3>
+        <!-- <p>Beberapa kategori video menarik yang bisa anda dapatkan ketika menjadi anggota premiun di situs kami..!</p> -->
       </header>
       <div class="row">
         <?php

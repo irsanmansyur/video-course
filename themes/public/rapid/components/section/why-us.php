@@ -4,29 +4,30 @@ Why Us Section
   <div class="container-fluid">
 
     <header class="section-header">
-      <h3>Why choose us?</h3>
-      <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+      <h3>Kenapa memilih kami?</h3>
+      <p></p>
     </header>
 
     <div class="row">
 
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
         <div class="why-us-img">
           <img src="<?= $thema_folder; ?>assets/img/why-us.jpg" alt="" class="img-fluid">
         </div>
-      </div>
+      </div> -->
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="why-us-content">
-          <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
-          <p>
-            Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
-            et temporibus. Labore est odio.
+          <div class="container">
+            <p class="text-center">Dari awal kami berprinsip untuk tidak memanjakan atau memberi sinyal ke member Sahampreneur.
+            </p>
 
-            Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
-          </p>
+            <p class="text-center">
+              “Kasih seseorang seekor ikan, dia bisa makan untuk sehari. Ajarin seseorang cara memancing dan dia bisa makan untuk seumur hidup.” Tetapi sesuai tujuan kami dari awal, kami ingin membimbing kalian untuk menjadi seorang trader dan investor yang mandiri. Tidak ada yang mudah untuk mempelajari sebuah ilmu baru dan berharga ini. Tetapi kalau kalian punya passion dalam dunia trading dan investasi, sudah saatnya kalian berhenti untuk berpikir dan mulai mengambil tindakan.
+            </p>
+          </div>
 
-          <div class="features wow bounceInUp clearfix">
+          <!-- <div class="features wow bounceInUp clearfix">
             <i class="fa fa-diamond" style="color: #f058dc;"></i>
             <h4>Corporis dolorem</h4>
             <p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
@@ -42,7 +43,7 @@ Why Us Section
             <i class="fa fa-language" style="color: #589af1;"></i>
             <h4>Voluptates dolores</h4>
             <p>Voluptates nihil et quis omnis et eaque omnis sint aut. Ducimus dolorum aspernatur. Totam dolores ut enim ullam voluptas distinctio aut.</p>
-          </div>
+          </div> -->
 
         </div>
 
@@ -56,13 +57,14 @@ Why Us Section
     <div class="row counters">
 
       <div class="col-lg-3 col-6 text-center">
-        <span data-toggle="counter-up">274</span>
-        <p>Clients</p>
+        <span data-toggle="counter-up"><?= @$klient ?? 274; ?></span>
+        <p>Klients</p>
       </div>
 
       <div class="col-lg-3 col-6 text-center">
         <span data-toggle="counter-up">421</span>
-        <p>Projects</p>
+        <p>
+          Proyek</p>
       </div>
 
       <div class="col-lg-3 col-6 text-center">
